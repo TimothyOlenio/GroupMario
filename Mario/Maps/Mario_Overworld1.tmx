@@ -117,7 +117,6 @@
   </tile>
  </tileset>
  <tileset firstgid="91" source="Super_Mario_3_Mario_World1_Map1.tsx"/>
- <tileset firstgid="8101" source="../../../GroupMario-master/Mario/Maps/00001.tsx"/>
  <tileset firstgid="8101" source="SMBWorld1Map_Mario.tsx"/>
  <tileset firstgid="8211" source="../../../GroupMario-master/Mario/Maps/SMBWorld1Map2.tsx"/>
  <layer id="1" name="Tile Layer 1" width="17" height="12">
@@ -131,7 +130,7 @@
   </data>
  </layer>
  <objectgroup id="6" name="Object Layer 1">
-  <object id="2" gid="0" x="30" y="65.3333" width="20" height="20"/>
+  <object id="2" x="30" y="65.3333" width="20" height="20"/>
   <object id="4" gid="8160" x="128.667" y="128" width="20" height="20"/>
  </objectgroup>
 </map>
