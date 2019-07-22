@@ -16,5 +16,7 @@
   
 7/22/2019
 
-  // Note -- Need to change something to a localfile, I cant remember, Jay seemed to know what was happening
+  // Note -- Need to change the root to a localfile, I cant remember what steve said about it.
+  // -- Fixed Hammer Bro Object not showing, Overworld needs "Help" bubble
+  // -- Installed Node and Malonjs      J.O.
   
