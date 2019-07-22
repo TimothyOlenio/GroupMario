@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.2" tiledversion="1.2.4" name="tilesSMAS" tilewidth="16" tileheight="16" spacing="1" tilecount="841" columns="29">
- <image source="../Images/tilesSMAS.png" trans="086084" width="500" height="500"/>
+ <image source="../img/tilesSMAS.png" trans="086084" width="500" height="500"/>
  <tile id="0">
   <animation>
    <frame tileid="0" duration="200"/>
