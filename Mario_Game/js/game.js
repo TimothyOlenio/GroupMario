@@ -15,7 +15,7 @@ var game = {
             me.sys.pauseOnBlur = false;
             me.sys.stopOnBlur = false;
         // Initialize the video.
-        if (!me.video.init(960, 640, {wrapper : "screen", scale : "auto"})) {
+        if (!me.video.init(256, 280, {wrapper : "screen", scale : "auto"})) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -42,9 +42,9 @@ var game = {
         
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
-        me.input.bindKey(me.input.KEY.X, "jump");
-        me.input.bindKey(me.input.KEY.UP, "jump");
-        me.input.bindKey(me.input.KEY.SPACE, "jump"); 
+        me.input.bindKey(me.input.KEY.X, "jump", true);
+        me.input.bindKey(me.input.KEY.UP, "jump", true);
+        me.input.bindKey(me.input.KEY.SPACE, "jump", true); 
 
 // -- Start the game.
         

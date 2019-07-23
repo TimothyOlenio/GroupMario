@@ -1,8 +1,10 @@
 /**
  * Player Entity
  */
-game.PlayerEntity = me.Entity.extend({
 
+
+game.PlayerEntity = me.Entity.extend({
+    
     /**
      * constructor
      */
@@ -11,8 +13,8 @@ game.PlayerEntity = me.Entity.extend({
         this._super(me.Entity, 'init', [x, y , settings]);
         
 //---- max walking & jumping speed
-      this.body.setMaxVelocity(3, 15);
-      this.body.setFriction(0.4, 0);
+      this.body.setMaxVelocity(2, 12);
+      this.body.setFriction(0.6, 0);
 
 //---- set the display to follow our position on both axis
       me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
@@ -34,7 +36,9 @@ game.PlayerEntity = me.Entity.extend({
      * update the entity
      */
     update : function (dt) {
-
+        
+    
+        
       if (me.input.isKeyPressed('left')) {
 
           // flip the sprite on horizontal axis
@@ -62,15 +66,17 @@ game.PlayerEntity = me.Entity.extend({
       }
 
       if (me.input.isKeyPressed('jump')) {
-
-          if (!this.body.jumping && !this.body.falling)
-          {
+          if (!this.body.jumping && !this.body.falling && !this.body.jumping == 1)
+          {   // --- Sets Jumping to 0, so mario can jump
+              this.body.jumping = 0;
               // set current vel to the maximum defined value
               // gravity will then do the rest
               this.body.force.y = -this.body.maxVel.y
           }
       } else {
           this.body.force.y = 0;
+          // --- Sets Jumping to 1, so Mario cant jump mid air
+          this.body.jumping = 1;
       }
 
       // apply physics to the body (this moves the entity)
@@ -90,5 +96,6 @@ game.PlayerEntity = me.Entity.extend({
     onCollision : function (response, other) {
         // Make all other objects solid
         return true;
+        
     }
 });
