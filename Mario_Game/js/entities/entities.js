@@ -24,6 +24,8 @@ game.PlayerEntity = me.Entity.extend({
 
 //---- define a basic walking animation (using 2 frames)
       this.renderable.addAnimation("walk",  [0, 1]);
+// --- Running Animation
+      this.renderable.addAnimation("run",  [0, 1, 2]);
 
 //---- define a standing animation (using the first frame)
       this.renderable.addAnimation("stand",  [0]);
@@ -37,9 +39,14 @@ game.PlayerEntity = me.Entity.extend({
      */
     update : function (dt) {
         
-    
-        
-      if (me.input.isKeyPressed('left')) {
+    if(me.input.isKeyPressed('run')) {
+        this.body.setMaxVelocity(3, 15);
+    }        
+      else {
+          this.body.setMaxVelocity(2,12);
+      }
+          
+          if (me.input.isKeyPressed('left')) {
 
           // flip the sprite on horizontal axis
           this.renderable.flipX(true);
