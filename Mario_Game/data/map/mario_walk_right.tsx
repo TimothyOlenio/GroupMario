@@ -5,6 +5,17 @@
  <tile id="0">
   <objectgroup draworder="index">
    <object id="1" x="5" y="5" width="10" height="15"/>
+   <object id="2" x="5" y="5" width="10" height="15"/>
+  </objectgroup>
+ </tile>
+ <tile id="1">
+  <objectgroup draworder="index">
+   <object id="1" x="5" y="5" width="10" height="15"/>
+  </objectgroup>
+ </tile>
+ <tile id="2">
+  <objectgroup draworder="index">
+   <object id="1" x="5" y="5" width="10" height="15"/>
   </objectgroup>
  </tile>
 </tileset>
