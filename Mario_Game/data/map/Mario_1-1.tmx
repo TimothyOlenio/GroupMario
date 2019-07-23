@@ -152,7 +152,7 @@
 </data>
  </layer>
  <objectgroup id="8" name="Mario">
-  <object id="5" name="mainPlayer" gid="9364" x="68" y="420" width="20" height="20">
+  <object id="5" name="mainPlayer" gid="9364" x="76" y="432" width="20" height="20">
    <properties>
     <property name="image" value="mario_walk_right"/>
    </properties>
