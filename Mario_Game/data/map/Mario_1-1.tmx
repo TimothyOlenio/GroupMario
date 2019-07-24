@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="153">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="155">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -298,6 +298,14 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="19" name="CoinEntity">
+  <object id="154" name="coinEntity" x="1087.5" y="335.5" width="16" height="16">
+   <properties>
+    <property name="height" type="int" value="16"/>
+    <property name="image" type="file" value="../img/coin.png"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="16" name="Collision Movable" offsetx="0.181818" offsety="-0.0909091">
   <object id="98" x="2048.55" y="384.455">
    <polygon points="0,0 14.9091,-0.0909091 14.8182,-16.8182 -0.454545,-16.2727"/>

@@ -37,6 +37,7 @@ var game = {
 // -- add our player entity in the entity pool
         
         me.pool.register("mainPlayer", game.PlayerEntity);
+        me.pool.register("coinEntity", game.CoinEntity);
         
 // -- Enable Keyboard 
         
