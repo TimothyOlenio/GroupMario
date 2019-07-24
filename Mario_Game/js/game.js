@@ -34,11 +34,11 @@ var game = {
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
-// -- add our player entity in the entity pool
+// -- add our player entity in the entity pooc
         
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("GoombaEntity", game.GoombaEntity);
-        me.pool.register("coinEntity", game.CoinEntity);
+        me.pool.register("CoinEntity", game.CoinEntity);
 
         
 // -- Enable Keyboard 
