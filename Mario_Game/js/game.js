@@ -37,6 +37,11 @@ var game = {
 // -- add our player entity in the entity pool
         
         me.pool.register("mainPlayer", game.PlayerEntity);
+
+// -- add our Pirahna Plant entity in the entity pool
+
+        me.pool.register("???", game.PiranhaPlant);
+
         
 // -- Enable Keyboard 
         

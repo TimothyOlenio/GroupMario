@@ -108,7 +108,7 @@ game.PlayerEntity = me.Entity.extend({
 });
 
 //-------------------------------------------------enemy entity
-game.EnemyEntity = me.Entity.extend(
+game.PiranhaPlant = me.Entity.extend(
     {
         // constructor
         init:function (x, y, settings) {
