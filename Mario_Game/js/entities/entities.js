@@ -106,3 +106,187 @@ game.PlayerEntity = me.Entity.extend({
         
     }
 });
+
+// goomba entity, made with love by Riggsby
+
+ game.EnemyEntity = me.Sprite.extend(
+ {
+     init: function (x, y, settings)
+     {
+         // save area defined in tiled 
+         var width = settings.width;
+
+         // define here instead of tiled
+         settings.image = "SNES - Super Mario All-Stars Super Mario Bros 3 - Enemies";
+
+         //adjusting entity to fit sprite
+         settings.framewidth = settings.width = 64;
+         settings.frameheight = settings.height = 64;
+
+         // call parent constructor
+         this._super(me.Sprite, 'init', [x, y , settings]);
+
+         // add physical body
+         this.body = new me.Body(this);
+         // default collision shape
+         this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+         //  max speed n friction
+         this.body.setMaxVelocity(4, 6);
+         this.body.setFriction(0.4, 0);
+         // enable physic collision
+         this.isKinematic = false;
+
+         // set start/end position based on the initial area size
+         x = this.pos.x;
+         this.startX = x;
+         this.pos.x = this.endX = x + width - this.width;
+         //this.pos.x  = x + width - this.width;
+
+         // to remember which side we were walking
+         this.walkLeft = false;
+
+         // It's ALIIIIVE
+         this.alive = true;
+     },
+
+     // manage the enemy movement
+     update : function (dt)
+     {
+         if (this.alive)
+         {
+             if (this.walkLeft && this.pos.x <= this.startX)
+             {
+                 this.walkLeft = false;
+                 this.body.force.x = this.body.maxVel.x;
+             }
+             else if (!this.walkLeft && this.pos.x >= this.endX)
+             {
+                 this.walkLeft = true;
+                 this.body.force.x = -this.body.maxVel.x;
+             }
+
+             this.flipX(this.walkLeft);
+         }
+         else
+         {
+             this.body.force.x = 0;
+         }
+         // check n update movement
+         this.body.update(dt);
+
+         // handle when shapes got beef
+         me.collision.check(this);
+
+         // return true if we moved or if the renderable was updated
+         return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+     },
+
+     // collision handler
+     onCollision : function (response, other) {
+         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
+             // res.y >0 means touched by something on the bottom
+             // which mean top position for this one
+             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
+                 this.renderable.flicker(750);
+             }
+             return false;
+         }
+         // make other obj solid
+         return true;
+     }
+ });
+
+//koopa entity
+
+
+
+game.EnemyEntity = me.Sprite.extend(
+ {
+     init: function (x, y, settings)
+     {
+         // save area defined in tiled 
+         var width = settings.width;
+
+         // define here instead of tiled
+         settings.image = "koopa entity png when i have it";
+
+         //adjusting entity to fit sprite
+         settings.framewidth = settings.width = 64;
+         settings.frameheight = settings.height = 64;
+
+         // call parent constructor
+         this._super(me.Sprite, 'init', [x, y , settings]);
+
+         // add physical body
+         this.body = new me.Body(this);
+         // default collision shape
+         this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+         //  max speed n friction
+         this.body.setMaxVelocity(4, 6);
+         this.body.setFriction(0.4, 0);
+         // enable physic collision
+         this.isKinematic = false;
+
+         // set start/end position based on the initial area size
+         x = this.pos.x;
+         this.startX = x;
+         this.pos.x = this.endX = x + width - this.width;
+         //this.pos.x  = x + width - this.width;
+
+         // to remember which side we were walking
+         this.walkLeft = false;
+
+         // It's ALIIIIVE
+         this.alive = true;
+     },
+
+     // manage the enemy movement
+     update : function (dt)
+     {
+         if (this.alive)
+         {
+             if (this.walkLeft && this.pos.x <= this.startX)
+             {
+                 this.walkLeft = false;
+                 this.body.force.x = this.body.maxVel.x;
+             }
+             else if (!this.walkLeft && this.pos.x >= this.endX)
+             {
+                 this.walkLeft = true;
+                 this.body.force.x = -this.body.maxVel.x;
+             }
+
+             this.flipX(this.walkLeft);
+         }
+         else
+         {
+             this.body.force.x = 0;
+         }
+         // check n update movement
+         this.body.update(dt);
+
+         // handle when shapes got beef
+         me.collision.check(this);
+
+         // return true if we moved or if the renderable was updated
+         return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+     },
+
+     // collision handler
+     onCollision : function (response, other) 
+     {
+         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) 
+         { 
+             // res.y >0 means touched by something on the bottom
+             // which mean top position for this one
+             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
+                 this.renderable.flicker(750);
+             }
+             return false;
+         }
+         // make other obj solid
+         return true;
+     }
+ });
+
+
