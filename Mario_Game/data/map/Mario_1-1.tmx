@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="139">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="153">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -321,6 +321,25 @@
   <object id="115" x="2112" y="416" width="16" height="16"/>
   <object id="116" x="2128" y="416" width="16" height="16"/>
   <object id="117" x="2112" y="400" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="18" name="Collision Blocks">
+  <object id="139" x="192" y="368" width="16" height="16"/>
+  <object id="141" x="208" y="368" width="16" height="16"/>
+  <object id="142" x="240" y="320" width="16" height="16"/>
+  <object id="143" x="256" y="320" width="16" height="16"/>
+  <object id="144" x="432" y="336" width="16" height="16"/>
+  <object id="145" x="672" y="400" width="16" height="16"/>
+  <object id="146" x="720" y="368" width="16" height="16"/>
+  <object id="147" x="1488" y="384" width="16" height="16"/>
+  <object id="148" x="1520" y="352" width="32" height="16"/>
+  <object id="149" x="2272" y="320" width="32" height="16"/>
+  <object id="150" x="2272" y="384" width="32" height="16"/>
+  <object id="151" x="1695.55" y="384.364">
+   <polygon points="0.454545,-0.363636 -15.5455,-0.363636 -15.5455,47.6364 32.4545,47.6364 32.4545,31.6364 16.4545,31.6364 16.4545,15.6364 0.454545,15.6364"/>
+  </object>
+  <object id="152" x="1631.27" y="384.545">
+   <polygon points="0.727273,-0.545455 0.727273,47.4545 -47.2727,47.4545 -47.2727,31.4545 -31.2727,31.4545 -31.2727,15.4545 -15.2727,15.4545 -15.2727,-0.545455"/>
+  </object>
  </objectgroup>
  <objectgroup id="14" name="Collision Pipes">
   <object id="85" x="368.182" y="384.182" width="31.6364" height="48.3636"/>
