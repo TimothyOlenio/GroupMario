@@ -106,3 +106,56 @@ game.PlayerEntity = me.Entity.extend({
         
     }
 });
+
+//-------------------------------------------------enemy entity
+game.EnemyEntity = me.Entity.extend(
+    {
+        // constructor
+        init:function (x, y, settings) {
+        
+        // call the constructor
+        this._super(me.Entity, 'init', [x, y , settings]);
+    
+        // ensure the enemy is updated even when outside of the viewport
+        this.alwaysUpdate = true;
+        
+        //---- define a basic walking animation (using 2 frames)
+        this.renderable.addAnimation("rise",  [???, ???]);
+        
+        //---- define a standing animation (using the first frame)
+        this.renderable.addAnimation("tall",  [???]);
+    },
+
+    //update the entity
+    update : function (dt) {
+        
+    if(me.input.isKeyPressed('run')) 
+    {
+        this.body.setMaxVelocity(3, 15);
+    }        
+    else
+    {
+        this.body.setMaxVelocity(2,12);
+    }
+    
+    // apply physics to the body (this moves the entity)
+    this.body.update(dt);
+
+      // handle collisions against other shapes
+      me.collision.check(this);
+
+      // return true if we moved or if the renderable was updated
+      return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+  },
+    
+   /**
+     * colision handler
+     * (called when colliding with other objects)
+     */
+    onCollision : function (response, other) {
+        // Make all other objects solid
+        return true;
+        
+    }
+});
+
