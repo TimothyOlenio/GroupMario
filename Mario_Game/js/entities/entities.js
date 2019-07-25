@@ -140,6 +140,7 @@ game.PlayerEntity = me.Entity.extend
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
+                this.pos.y = other.pos.y - this.height;
                 // bounce (force jump)
                 this.body.falling = false;
                 this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
