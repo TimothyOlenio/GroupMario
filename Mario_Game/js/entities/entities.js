@@ -314,10 +314,10 @@ game.MushroomEntity = me.CollectableEntity.extend(
              if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
                  this.renderable.flicker(750);
              }
-             return true;
+             return false;
          }
          // Make all other objects solid
-         return false;
+         return true;
      }
  });
 

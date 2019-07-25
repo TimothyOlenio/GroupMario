@@ -5,6 +5,11 @@ game.resources = [
         "src": "data/img/00001.png"
     },
     {
+        "name": "Goomba_Walk",
+        "type": "image",
+        "src": "data/img/Goomba_Walk.png"
+    },
+    {
         "name": "1-1",
         "type": "image",
         "src": "data/img/1-1.png"
