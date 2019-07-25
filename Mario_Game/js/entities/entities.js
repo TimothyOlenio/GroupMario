@@ -463,11 +463,13 @@ game.WingGoombaEntity = me.Sprite.extend(
              {
                  this.walkLeft = false;
                  this.body.force.x = this.body.maxVel.x;
+                 
              }
              else if (!this.walkLeft && this.pos.x >= this.endX)
              {
                  this.walkLeft = true;
                  this.body.force.x = -this.body.maxVel.x;
+                 
              }
 
              this.flipX(this.walkLeft);
