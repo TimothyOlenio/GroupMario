@@ -120,10 +120,10 @@ game.PiranhaPlant = me.Entity.extend(
         this.alwaysUpdate = true;
         
         //---- define a basic walking animation (using 2 frames)
-        this.renderable.addAnimation("rise",  [???, ???]);
+        this.renderable.addAnimation("rise",  [296]);
         
         //---- define a standing animation (using the first frame)
-        this.renderable.addAnimation("tall",  [???]);
+        this.renderable.addAnimation("tall",  [269]);
     },
 
     //update the entity
