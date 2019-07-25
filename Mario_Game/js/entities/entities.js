@@ -198,7 +198,32 @@ game.CoinEntity = me.CollectableEntity.extend(
     me.game.world.removeChild(this);
 
     return false
+            
         }
+});
+
+//Mushroom entity
+game.MushroomEntity = me.CollectableEntity.extend(
+{
+    // entending the init function is not manditoy
+    // unless you need to add some extra initialization
+    init: function (x, y, settings) 
+    {
+        // call the parent constructor
+        this._super(me.CollectableEntity, 'init', [x, y, settings]);
+    },       
+    //this function is called by the engine when an object is touched by something (here collected)
+    onCollision : function (response, other) 
+    {
+        //do something when collected
+        // make sure it cannot be collects "again"
+        game.data.score += 250;
+        this.body.setCollisionMask(me.collision.types.NO_OBJECT);       
+        // remove it
+        me.game.world.removeChild(this);
+                
+        return false
+    }
 });
 
 /**
