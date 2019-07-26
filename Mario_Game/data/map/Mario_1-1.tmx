@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="202">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="25" nextobjectid="203">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -420,11 +420,11 @@
   <object id="165" name="CoinEntity" gid="9080" x="2399.67" y="576" width="16" height="16"/>
   <object id="166" name="CoinEntity" gid="9080" x="2384.33" y="559.333" width="16" height="16"/>
   <object id="167" name="CoinEntity" gid="9080" x="2367.33" y="559.667" width="16" height="16"/>
-  <object id="169" name="MushroomEntity" gid="9080" x="503" y="430.333" width="16" height="16"/>
+  <object id="202" name="MushroomEntity" type="MushroomEntity" x="512" y="336"/>
  </objectgroup>
  <objectgroup id="20" name="Goombas">
   <object id="182" name="GoombaEntity" x="90" y="416" width="206" height="16"/>
-  <object id="184" name="GoombaEntity" x="400" y="416" width="224" height="16"/>
+  <object id="184" name="GoombaEntity" x="416" y="416" width="208" height="16"/>
   <object id="186" name="GoombaEntity" x="688" y="400" width="316" height="16"/>
   <object id="190" name="GoombaEntity" x="688" y="400" width="352" height="16"/>
   <object id="201" name="GoombaEntity" x="688" y="400" width="384" height="16"/>

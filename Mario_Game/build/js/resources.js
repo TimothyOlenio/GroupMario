@@ -50,6 +50,11 @@ game.resources = [
         "src": "data/img/tilesSMAS.png"
     },
     {
+        "name": "Mushroom",
+        "type": "image",
+        "src": "data/img/Mushroom.png"
+    },
+    {
         "name": "Mario_1-1",
         "type": "tmx",
         "src": "data/map/Mario_1-1.tmx"
