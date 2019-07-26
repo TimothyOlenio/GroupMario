@@ -43,7 +43,10 @@ var game = {
         me.pool.register("MushroomEntity", game.MushroomEntity);
         me.pool.register("KoopaEntity", game.KoopaEntity);
         
-        //me.pool.register("FirePiranhaEntity", game.FirePiranhaEntity);
+        me.pool.register("PiranhaEntity", game.PiranhaEntity);
+        me.pool.register("FirePiranhaEntity", game.FirePiranhaEntity);
+        
+        
         // me.pool.register("LilMario", game.LilMario);
 
         
