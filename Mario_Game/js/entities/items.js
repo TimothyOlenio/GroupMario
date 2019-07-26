@@ -148,18 +148,19 @@ game.MushroomEntity = me.CollectableEntity.extend(
     // unless you need to add some extra initialization
     init: function (x, y, settings) 
     {
-        // save the area size as defined in Tiled
-         var width = settings.width;
-
-         // define this here instead of tiled
-         settings.image = "Mushroom";
-        
-        //---- set the standing animation as default
-        //this.renderable.setCurrentAnimation("Mushroom");
-        
         // call the parent constructor
         this._super(me.CollectableEntity, 'init', [x, y, settings]);
+        // save the area size as defined in Tiled
+         var width = settings.width;
+        settings.image = "Mushroom";
+        settings.frameWidth = settings.width = 16;
+        settings.frameHeight = settings.height = 16;
+        this.addAnimation("Slide"[0]);
+
+        
+
         // define this here instead of tiled
+        this.renderable.setCurrentAnimation("Slide");
     },       
     //this function is called by the engine when an object is touched by something (here collected)
     onCollision : function (response, other) 
