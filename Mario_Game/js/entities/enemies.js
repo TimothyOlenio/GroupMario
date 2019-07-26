@@ -387,48 +387,74 @@ game.FirePiranhaEntity = me.Sprite.extend(
  {
      init: function (x, y, settings)
      {
-// save the area size as defined in Tiled
+         // save the area size as defined in Tiled
          var height = settings.height;
 
-// define this here instead of tiled
+         // define this here instead of tiled
          settings.image = "mario_walk_right";
 
-// adjust the size setting information to match the sprite size
-// so that the entity object is created with the right size
+         // adjust the size setting information to match the sprite size
+         // so that the entity object is created with the right size
          settings.framewidth = settings.width = 16;
          settings.frameheight = settings.height = 16;
 
-// call the parent constructor
+         // call the parent constructor
          this._super(me.Sprite, 'init', [x, y , settings]);
 
-// add a physic body
+         // add a physic body
          this.body = new me.Body(this);
-// add a default collision shape
+
+         // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-// configure max speed and friction
+
+         // configure max speed and friction
          this.body.setMaxVelocity(1, 6);
          this.body.setFriction(0.4, 0);
-// enable physic collision (off by default for basic me.Renderable)
+
+         // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
-// set start/end position based on the initial area size
+
+         // define the x so that the entity can flip when mario jumps over it
+         x = this.pos.x;
+
+         // set start/end position based on the initial area size
          y = this.pos.y;
          this.startY = y;
          this.pos.y = this.endY = y + height - this.height;
-//this.pos.x  = x + width - this.width;
 
-// to remember which side we were walking
+         //this.pos.x  = x + width - this.width;
+         
+         //Create Player Variable to store, getChildByName is expensive!!!!
+         this.player = me.game.world.getChildByName("mainPlayer")[0];
+
+
+         // to remember which side we were walking
          this.comeUp = false;
+         this.faceLeft = true;
 
-// make it "alive"
+
+         // make it "alive"
          this.alive = true;
      },
 
-// manage the enemy movement
+
+     // manage the enemy movement
      update : function (dt)
      {
          if (this.alive)
          {
+             this.flipX(this.faceLeft);
+             
+             //make it face mario
+             if (me.pool.find.pos.x <= this.pos.x)
+             {
+                 this.faceLeft = true;
+             }
+             else    
+             {
+                 this.faceLeft
+             }
              if (this.comeUp && this.pos.y <= this.startY)
              {
                  this.comeUp = false;
@@ -439,20 +465,20 @@ game.FirePiranhaEntity = me.Sprite.extend(
                  this.comeUp = true;
                  this.body.force.y = -this.body.maxVel.y;
              }
-
-             //this.flipX(this.comeUp);
          }
          else
          {
              this.body.force.y = 0;
          }
-// check & update movement
+
+         // check & update movement
          this.body.update(dt);
 
-// handle collisions against other shapes
+
+         // handle collisions against other shapes
          me.collision.check(this);
 
-// return true if we moved or if the renderable was updated
+         // return true if we moved or if the renderable was updated
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
 
@@ -472,10 +498,12 @@ game.FirePiranhaEntity = me.Sprite.extend(
                 
             }
          
-         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
+         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) 
+         {
              // res.y >0 means touched by something on the bottom
              // which mean at top position for this one
-             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
+             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) 
+             {
                  this.renderable.flicker(750);
              }
              return false;
