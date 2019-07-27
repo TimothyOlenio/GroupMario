@@ -1,10 +1,17 @@
 game.PlayerEntity = me.Entity.extend
 ({
+    
+
+    
     /**
      * constructor
      */
     init:function (x, y, settings) 
     {
+            var myleft = this.x;
+            var myRight = this.x + (this.width);
+            var mytop = this.y;
+            var bottom = this.y + (this.height);
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
         
@@ -150,8 +157,18 @@ game.PlayerEntity = me.Entity.extend
             }
             else 
             {
-        // let's flicker in case we touched an enemy
-                this.renderable.flicker(750);
+        // this is Mario Dying, I still need to add Animation after he is hit, and a death animation.
+        // Pause if Collide with enemy
+        me.state.pause;
+        me.state.waitSeconds
+                
+                // Load the Overworld, would need to change this line if using multiple worlds, possible would need a lot more if/else statements for going back to the overworld and keeping Lives/Score/ect.   Currently commented out as its annoying the hell out of me when testing.
+                
+       // me.levelDirector.loadLevel("Mario_Overworld1");
+       // this.HUD = new game.HUD.Container();
+       // me.game.world.addChild(this.HUD);
+                
+        me.state.resume;
             }
 
                 // Fall through
@@ -203,29 +220,6 @@ game.CoinEntity = me.CollectableEntity.extend(
         }
 });
 
-//Mushroom entity
-game.MushroomEntity = me.CollectableEntity.extend(
-{
-    // entending the init function is not manditoy
-    // unless you need to add some extra initialization
-    init: function (x, y, settings) 
-    {
-        // call the parent constructor
-        this._super(me.CollectableEntity, 'init', [x, y, settings]);
-    },       
-    //this function is called by the engine when an object is touched by something (here collected)
-    onCollision : function (response, other) 
-    {
-        //do something when collected
-        // make sure it cannot be collects "again"
-        game.data.score += 250;
-        this.body.setCollisionMask(me.collision.types.NO_OBJECT);       
-        // remove it
-        me.game.world.removeChild(this);
-                
-        return false
-    }
-});
 
 
 /**

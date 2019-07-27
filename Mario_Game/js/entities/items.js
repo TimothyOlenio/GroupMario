@@ -155,12 +155,7 @@ game.MushroomEntity = me.CollectableEntity.extend(
         settings.image = "Mushroom";
         settings.frameWidth = settings.width = 16;
         settings.frameHeight = settings.height = 16;
-        this.addAnimation("Slide"[0]);
 
-        
-
-        // define this here instead of tiled
-        this.renderable.setCurrentAnimation("Slide");
     },       
     //this function is called by the engine when an object is touched by something (here collected)
     onCollision : function (response, other) 

@@ -165,7 +165,6 @@
     <property name="to" value="Mario_1-1"/>
    </properties>
   </object>
-  <object id="14" name="LilMario" x="16" y="32" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="25" name="Object Layer 1">
   <object id="9" x="144" y="96" width="16" height="16"/>
