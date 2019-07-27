@@ -147,7 +147,7 @@ game.PlayerEntity = me.Entity.extend
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
-                this.pos.y = other.pos.y - this.height;
+                this.pos.y = other.pos.y - 5 - this.height;
                 // bounce (force jump)
                 this.body.falling = false;
                 this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
@@ -162,11 +162,11 @@ game.PlayerEntity = me.Entity.extend
         me.state.pause;
         me.state.waitSeconds
                 
-                // Load the Overworld, would need to change this line if using multiple worlds, possible would need a lot more if/else statements for going back to the overworld and keeping Lives/Score/ect.   Currently commented out as its annoying the hell out of me when testing.
+                // Load the Mario_Overworld1 map, set to Mario_1-1 for testing would need to change this line if using multiple worlds, possible would need a lot more if/else statements for going back to the overworld and keeping Lives/Score/ect.   Currently commented out as its annoying the hell out of me when testing.
                 
-       // me.levelDirector.loadLevel("Mario_Overworld1");
-       // this.HUD = new game.HUD.Container();
-       // me.game.world.addChild(this.HUD);
+        me.levelDirector.loadLevel("Mario_1-1");
+        this.HUD = new game.HUD.Container();
+        me.game.world.addChild(this.HUD);
                 
         me.state.resume;
             }
