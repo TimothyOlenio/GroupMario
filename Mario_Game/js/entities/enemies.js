@@ -183,8 +183,8 @@ game.WingGoombaEntity = me.Sprite.extend(
      }
  });
 
- game.KoopaEntity = me.Sprite.extend(
- {
+game.KoopaEntity = me.Sprite.extend(
+{
      init: function (x, y, settings)
      {
 // save the area size as defined in Tiled
@@ -259,22 +259,44 @@ game.WingGoombaEntity = me.Sprite.extend(
      },
 
 /**
- * colision handler
- * (called when colliding with other objects)
- */
-     onCollision : function (response, other) {
-         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
-             // res.y >0 means touched by something on the bottom
-             // which mean at top position for this one
-             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
-                 this.renderable.flicker(750);
-             }
+* colision handler
+* (called when colliding with other objects)
+*/
+    onCollision : function (response, other) 
+     {
+        switch(response.b.body.collisionType)
+        {
+            case me.collision.types.WORLD_SHAPE:        
+                if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) 
+                {
+                    // res.y >0 means touched by something on the bottom
+                    // which mean at top position for this one
+                    if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) { 
+                       
+                 
+                }
              return false;
          }
+             break;
+                
+            case me.collision.types.PlayerEntity:
+               
+                if(reponse.b.body.collisionType == me.collision.type.PlayerEntity)
+                    {
+                        if (this.alive && (this.body.pos.overlapV.y < 0) && game.PlayerEntity.pos.overlapV.y)
+                            {
+                                me.state.pause();
+                            }
+                        return false;
+                    }
+             break;
          // Make all other objects solid
          return true;
+        }
+        
      }
- });
+});
+
 
 
 /**
