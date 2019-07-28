@@ -130,18 +130,11 @@
      return true;
         },
      
-     removeChildNow : function (child) 
-     {
-     this._super(me.Container, "removeChildNow", [child]);
-     this.updateChildBounds();
-     },
-     
      onDeath: function () 
      {
      
        game.data.score += 100;
-       this.body.setCollisionMask(me.collision.types.NO_OBJECT);
-       this.removeChildNow();
+       me.game.world.removeChild(this);
        console.log("closer");   
      }
  });
