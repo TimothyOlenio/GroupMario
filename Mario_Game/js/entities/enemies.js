@@ -25,7 +25,7 @@
 // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
-         this.body.setMaxVelocity(1, 6);
+         this.body.setMaxVelocity(0.6, 6);
          this.body.setFriction(0.4, 0);
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
@@ -75,21 +75,74 @@
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
 
-/**
- * colision handler
- * (called when colliding with other objects)
- */
-     onCollision : function (response, other) {
-         if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) {
-             // res.y >0 means touched by something on the bottom
-             // which mean at top position for this one
-             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
-                 this.renderable.flicker(750);
-             }
-             return false;
-         }
-         // Make all other objects solid
-         return true;
+   /**
+     * colision handler
+     * (called when colliding with other objects)
+     */
+    onCollision : function (response, other) 
+        {
+        
+            switch (response.b.body.collisionType) 
+            {
+                case me.collision.types.WORLD_SHAPE:
+                // Simulate a platform object
+                if (other.type === "platform") 
+                {
+                    if (this.body.falling &&
+                    !me.input.isKeyPressed('down') &&
+
+                    // Shortest overlap would move the player upward
+                    (response.overlapV.y > 0) &&
+
+                    // The velocity is reasonably fast enough to have penetrated to the overlap depth
+                    (~~this.body.vel.y >= ~~response.overlapV.y)
+                    ){
+                        // Disable collision on the x axis
+                        response.overlapV.x = 0;
+
+                        // Repond to the platform (it is solid)
+                        return true;
+                     }
+
+                    // Do not respond to the platform (pass through)
+                    return false;
+                }
+                    break;
+
+            case me.collision.types.ENEMY_OBJECT:
+                if ((response.overlapV.y>0) && !this.body.jumping) 
+            {
+                this.onDeath();
+            }
+            else 
+            {
+                
+            }
+
+                // Fall through
+
+            default:
+                 // Do not respond to other objects (e.g. coins)
+            return false;
+            }
+
+  // Make the object solid
+     return true;
+        },
+     
+     removeChildNow : function (child) 
+     {
+     this._super(me.Container, "removeChildNow", [child]);
+     this.updateChildBounds();
+     },
+     
+     onDeath: function () 
+     {
+     
+       game.data.score += 100;
+       this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+       this.removeChildNow();
+       console.log("closer");   
      }
  });
 game.WingGoombaEntity = me.Sprite.extend(
@@ -178,6 +231,13 @@ game.WingGoombaEntity = me.Sprite.extend(
              }
              return false;
          }
+         //this.pos.y = other.pos.y - 5 - this.height;
+                // bounce (force jump)
+           //     this.body.falling = false;
+             //   this.body.vel.y = -this.body.maxVel.y * //me.timer.tick;
+
+                // set the jumping flag
+               // this.body.jumping = true;
          // Make all other objects solid
          return true;
      }

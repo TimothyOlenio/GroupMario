@@ -143,7 +143,7 @@ game.PlayerEntity = me.Entity.extend
                     return false;
                 }
                     break;
-
+//maybe stuff for wing goomba
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
