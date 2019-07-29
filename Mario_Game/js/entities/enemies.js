@@ -8,6 +8,10 @@
      {
 // save the area size as defined in Tiled
          var width = settings.width;
+         
+         var noJump = 0;
+         var yesJump = 1;
+         var jumpState = 0;
 
 // define this here instead of tiled
          settings.image = "Goomba_Walk";
@@ -73,6 +77,22 @@
 
 // return true if we moved or if the renderable was updated
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
+     },
+     
+     goombaJump : function ()
+     {
+    
+        //switch goes here, still working on logistics of it though
+        switch (this.jumpState)
+            case noJump
+            {
+                    
+            }
+         
+            case yesJump
+            {
+         
+            }
      },
 
    /**
