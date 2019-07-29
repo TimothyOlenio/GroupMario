@@ -360,20 +360,20 @@
   <object id="95" x="2496.18" y="511.273" width="32" height="32.3636"/>
  </objectgroup>
  <objectgroup id="13" name="Collision Platform">
-  <object id="72" type="platform" x="1423.82" y="207.818" width="64.1818" height="3.27273"/>
-  <object id="73" type="platform" x="1504.18" y="192.182" width="207.455" height="3.45455"/>
-  <object id="78" type="platform" x="528.364" y="320.364" width="62.3636" height="4.72727"/>
-  <object id="76" type="platform" x="416.727" y="384.182" width="78.1818" height="4.54545"/>
-  <object id="79" type="platform" x="528.182" y="400.364" width="95.2727" height="3.27273"/>
-  <object id="80" type="platform" x="1280.18" y="400.545" width="111.091" height="3.27273"/>
-  <object id="84" type="platform" x="2192.18" y="288.364" width="47.4545" height="4.36364"/>
-  <object id="75" type="platform" x="288.364" y="352" width="46.3636" height="5.27273"/>
-  <object id="82" type="platform" x="1343.82" y="336" width="111.455" height="4.54545"/>
-  <object id="74" type="platform" x="256.364" y="384.545" width="46.3636" height="4"/>
-  <object id="77" type="platform" x="480.364" y="352.364" width="62.9091" height="4.18182"/>
-  <object id="81" type="platform" x="1312.18" y="368.182" width="110.909" height="4.54545"/>
-  <object id="83" type="platform" x="2160.18" y="384.182" width="47.2727" height="4"/>
-  <object id="203" type="platform" x="1328" y="160" width="64" height="4"/>
+  <object id="72" type="platform" x="1423.82" y="207.818" width="64.1818" height="8"/>
+  <object id="73" type="platform" x="1504.18" y="192.182" width="207.455" height="8"/>
+  <object id="78" type="platform" x="528.364" y="320.364" width="62.3636" height="8"/>
+  <object id="76" type="platform" x="416.727" y="384.182" width="78.1818" height="8"/>
+  <object id="79" type="platform" x="528.182" y="400.364" width="95.2727" height="8"/>
+  <object id="80" type="platform" x="1280.18" y="400.545" width="111.091" height="8"/>
+  <object id="84" type="platform" x="2192.18" y="288.364" width="47.4545" height="8"/>
+  <object id="75" type="platform" x="288.364" y="352" width="46.3636" height="8"/>
+  <object id="82" type="platform" x="1343.82" y="336" width="111.455" height="8"/>
+  <object id="74" type="platform" x="256.364" y="384.545" width="46.3636" height="8"/>
+  <object id="77" type="platform" x="480.364" y="352.364" width="62.9091" height="8"/>
+  <object id="81" type="platform" x="1312.18" y="368.182" width="110.909" height="8"/>
+  <object id="83" type="platform" x="2160.18" y="384.182" width="47.2727" height="8"/>
+  <object id="203" type="platform" x="1328" y="160" width="64" height="8"/>
   <object id="119" x="15" y="432" width="625" height="16"/>
   <object id="120" x="641" y="417" width="460" height="31"/>
   <object id="121" x="1169" y="433" width="350" height="16"/>
