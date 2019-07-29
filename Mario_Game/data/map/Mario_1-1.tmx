@@ -452,11 +452,11 @@
   <object id="200" name="KoopaEntity" x="1168" y="352" width="256" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="Mario">
-  <object id="125" name="mainPlayer" x="64" y="400">
+  <object id="125" name="mainPlayer" x="78" y="416.8">
    <properties>
     <property name="image" value="mario_walk_right"/>
    </properties>
-   <polygon points="-7.875,3.5625 -8,17 -5,22 7,22 10.125,16.625 10.125,3.5625"/>
+   <polygon points="-12,-3.8 -12,15.2 0,15.2 0,-3.8"/>
   </object>
  </objectgroup>
 </map>

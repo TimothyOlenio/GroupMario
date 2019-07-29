@@ -14,17 +14,14 @@ game.PlayerEntity = me.Entity.extend
             var bottom = this.y + (this.height);
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
-        
-//---- max walking & jumping speed
-        this.body.setMaxVelocity(2, 12);
-        this.body.setFriction(0.6, 0);
 
 //---- set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
 
 //---- ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
-
+        
+        this.renderable.anchorPoint.set(0.1, 0);
 //---- define a basic walking animation (using 2 frames)
         this.renderable.addAnimation("walk",  [0, 1]);
 // --- Jumping Animation
@@ -45,10 +42,12 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-        this.body.setMaxVelocity(3, 15);
+        this.body.setMaxVelocity(2.2, 12.2);
+        this.body.setFriction(0.6, 0);
         }        
       else  {
-          this.body.setMaxVelocity(2, 12);
+          this.body.setMaxVelocity(1.8, 11.7);
+          this.body.setFriction(0.6, 0);
             }
           
           if (me.input.isKeyPressed('left')) 
@@ -150,7 +149,7 @@ game.PlayerEntity = me.Entity.extend
                 this.pos.y = other.pos.y - 5 - this.height;
                 // bounce (force jump)
                 this.body.falling = false;
-                this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+                this.body.vel.y = -this.body.maxVel.y - 0.5 * me.timer.tick;
 
                 // set the jumping flag
                 this.body.jumping = true;
