@@ -344,6 +344,11 @@
   <object id="181" x="1616" y="384" width="16" height="16"/>
   <object id="204" x="1456" y="144" width="16" height="16"/>
  </objectgroup>
+ <objectgroup id="25" name="Piranhas">
+  <object id="211" name="RedFirePiranhaEntity" x="368" y="352" width="32" height="64"/>
+  <object id="212" name="GreenFirePiranhaEntity" x="1872" y="352" width="32" height="64" visible="0"/>
+  <object id="213" name="PiranhaEntity" x="1808" y="368" width="32" height="64"/>
+ </objectgroup>
  <objectgroup id="14" name="Collision Pipes">
   <object id="85" type="pipes" x="368.182" y="384.182" width="31.6364" height="48.3636"/>
   <object id="86" type="pipes" x="1808.18" y="399.818" width="31.6364" height="32.3636"/>
@@ -449,11 +454,6 @@
   <object id="198" name="KoopaEntity" x="528" y="384" width="96" height="16"/>
   <object id="199" name="KoopaEntity" x="1168" y="320" width="288" height="16"/>
   <object id="200" name="KoopaEntity" x="1168" y="352" width="256" height="16"/>
- </objectgroup>
- <objectgroup id="25" name="Piranhas">
-  <object id="211" name="FirePiranhaEntity" x="368" y="352" width="32" height="64"/>
-  <object id="212" name="FirePiranhaEntity" x="1872" y="352" width="32" height="64"/>
-  <object id="213" name="PiranhaEntity" x="1808" y="368" width="32" height="64"/>
  </objectgroup>
  <objectgroup id="8" name="Mario">
   <object id="125" name="mainPlayer" x="78" y="416.8">
