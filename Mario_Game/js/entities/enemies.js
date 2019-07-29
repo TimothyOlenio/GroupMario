@@ -89,16 +89,14 @@
                 if (other.type === "platform") 
                 {
                     if (this.body.falling &&
-                    !me.input.isKeyPressed('down') &&
-
                     // Shortest overlap would move the player upward
                     (response.overlapV.y > 0) &&
-
                     // The velocity is reasonably fast enough to have penetrated to the overlap depth
                     (~~this.body.vel.y >= ~~response.overlapV.y)
                     ){
                         // Disable collision on the x axis
-                        response.overlapV.x = 0;
+                        
+                        response.overlapV.x = 1;
 
                         // Repond to the platform (it is solid)
                         return true;
@@ -329,24 +327,33 @@ game.KoopaEntity = me.Sprite.extend(
                  
                 }
              return false;
-         }
+                }
              break;
                 
-            case me.collision.types.PlayerEntity:
-               
-                if(reponse.b.body.collisionType == me.collision.type.PlayerEntity)
-                    {
-                        if (this.alive && (this.body.pos.overlapV.y < 0) && game.PlayerEntity.pos.overlapV.y)
-                            {
-                                me.state.pause();
-                            }
-                        return false;
-                    }
-             break;
-         // Make all other objects solid
-         return true;
+            case me.collision.types.ENEMY_OBJECT:
+                if ((response.overlapV.y>0) && !this.body.jumping) 
+            {
+                this.onDeath();
+            }
+            else 
+            {
+                
+            }
+
+                // Fall through
+
+            default:
+                 // Do not respond to other objects (e.g. coins)
+            return false;
         }
         
+     },
+         onDeath: function () 
+     {
+     
+       game.data.score += 100;
+       me.game.world.removeChild(this);
+       console.log("closer");   
      }
 });
 
