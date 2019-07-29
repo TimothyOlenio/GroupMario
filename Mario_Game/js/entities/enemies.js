@@ -244,12 +244,12 @@ game.KoopaEntity = me.Sprite.extend(
          var width = settings.width;
 
 // define this here instead of tiled
-         settings.image = "Gargantua_koopa";
+         settings.image = "RedKoopa_Walk";
 
 // adjust the size setting information to match the sprite size
 // so that the entity object is created with the right size
          settings.framewidth = settings.width = 16;
-         settings.frameheight = settings.height = 16;
+         settings.frameheight = settings.height = 27;
 
 // call the parent constructor
          this._super(me.Sprite, 'init', [x, y , settings]);

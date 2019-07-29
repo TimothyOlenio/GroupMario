@@ -5,9 +5,9 @@ game.resources = [
         "src": "data/img/00001.png"
     },
     {
-        "name": "Gargantua_koopa",
+        "name": "RedKoopa_Walk",
         "type": "image",
-        "src": "data/img/Gargantua_koopa.png"
+        "src": "data/img/RedKoopa_Walk.png"
     },
     {
         "name": "Goomba_Walk",
@@ -53,6 +53,16 @@ game.resources = [
         "name": "Mushroom",
         "type": "image",
         "src": "data/img/Mushroom.png"
+    },
+    {
+        "name": "1Up",
+        "type": "image",
+        "src": "data/img/1Up.png"
+    },
+    {
+        "name": "Leaf",
+        "type": "image",
+        "src": "data/img/Leaf.png"
     },
     {
         "name": "Mario_1-1",

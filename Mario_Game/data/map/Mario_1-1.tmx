@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="25" nextobjectid="205">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="25" nextobjectid="207">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -425,6 +425,16 @@
   <object id="202" name="MushroomEntity" type="MushroomEntity" x="512" y="336">
    <properties>
     <property name="image" type="file" value="../img/Mushroom.png"/>
+   </properties>
+  </object>
+  <object id="205" name="1UpEntity" type="1UpEntity" x="559.667" y="306.333">
+   <properties>
+    <property name="image" type="file" value="../img/1Up.png"/>
+   </properties>
+  </object>
+  <object id="206" name="LeafEntity" type="LeafEntity" x="680" y="384.333">
+   <properties>
+    <property name="image" type="file" value="../img/Leaf.png"/>
    </properties>
   </object>
  </objectgroup>

@@ -41,6 +41,8 @@ var game = {
         me.pool.register("GoombaEntity", game.GoombaEntity);
         me.pool.register("CoinEntity", game.CoinEntity);
         me.pool.register("MushroomEntity", game.MushroomEntity);
+        me.pool.register("1UpEntity", game.OneUpEntity);
+        me.pool.register("LeafEntity", game.LeafEntity);
         me.pool.register("KoopaEntity", game.KoopaEntity);
         
         //me.pool.register("FirePiranhaEntity", game.FirePiranhaEntity);
