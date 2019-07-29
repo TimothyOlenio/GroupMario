@@ -48,9 +48,7 @@ var game = {
         me.pool.register("PiranhaEntity", game.PiranhaEntity);
         me.pool.register("RedFirePiranhaEntity", game.RedFirePiranhaEntity);
         me.pool.register("GreenFirePiranhaEntity", game.GreenFirePiranhaEntity);
-
-        
-        // me.pool.register("LilMario", game.LilMario);
+        me.pool.register("LilMario", game.LilMario);
 
         
 // -- Enable Keyboard 
@@ -64,6 +62,6 @@ var game = {
 
 // -- Start the game.
         
-        me.state.change(me.state.MENU);
+        me.state.change(me.state.PLAY);
     }
 };

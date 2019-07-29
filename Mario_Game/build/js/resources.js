@@ -1,5 +1,10 @@
 game.resources = [
     {
+        "name": "OvMario",
+        "type": "image",    
+        "src": "data/img/OvMario.png"
+    },
+    {
         "name": "00001",
         "type": "image",
         "src": "data/img/00001.png"
