@@ -413,7 +413,7 @@ game.PiranhaEntity = me.Sprite.extend(
 // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
-         this.body.setMaxVelocity(1, 6);
+         this.body.setMaxVelocity(0.25, 1.5);
          this.body.setFriction(0.4, 0);
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
@@ -518,7 +518,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 
          // configure max speed and friction
-         this.body.setMaxVelocity(1, 6);
+         this.body.setMaxVelocity(0.25, 1.5);
          this.body.setFriction(0.4, 0);
 
          // enable physic collision (off by default for basic me.Renderable)
@@ -649,7 +649,7 @@ game.GreenFirePiranhaEntity = me.Sprite.extend(
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 
          // configure max speed and friction
-         this.body.setMaxVelocity(1, 6);
+         this.body.setMaxVelocity(0.25, 1.5);
          this.body.setFriction(0.4, 0);
 
          // enable physic collision (off by default for basic me.Renderable)
