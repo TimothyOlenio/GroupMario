@@ -46,7 +46,7 @@ var game = {
         me.pool.register("KoopaEntity", game.KoopaEntity);
         
         //me.pool.register("FirePiranhaEntity", game.FirePiranhaEntity);
-        // me.pool.register("LilMario", game.LilMario);
+         me.pool.register("LilMario", game.LilMario);
 
         
 // -- Enable Keyboard 
@@ -60,6 +60,6 @@ var game = {
 
 // -- Start the game.
         
-        me.state.change(me.state.MENU);
+        me.state.change(me.state.PLAY);
     }
 };

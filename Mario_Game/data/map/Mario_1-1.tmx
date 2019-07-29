@@ -383,7 +383,7 @@
     <property name="to" value="Mario_Overworld1"/>
    </properties>
   </object>
-  <object id="171" x="16" y="480" width="2832" height="16"/>
+  <object id="171" x="20" y="482" width="2832" height="16"/>
   <object id="172" x="2832" y="0" width="16" height="432"/>
  </objectgroup>
  <objectgroup id="19" name="Items">

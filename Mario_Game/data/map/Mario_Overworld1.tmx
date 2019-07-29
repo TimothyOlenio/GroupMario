@@ -167,6 +167,10 @@
   </object>
  </objectgroup>
  <objectgroup id="25" name="Object Layer 1">
-  <object id="9" name="mainPlayer" x="16" y="32" width="16" height="16"/>
+  <object id="9" name="LilMario" x="16" y="32" width="16" height="16">
+   <properties>
+    <property name="image" type="file" value=""/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
