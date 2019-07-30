@@ -444,7 +444,7 @@
   </object>
  </objectgroup>
  <objectgroup id="20" name="Goombas">
-  <object id="182" name="GoombaEntity" x="90" y="390" width="206" height="40"/>
+  <object id="182" name="GoombaEntity" x="80" y="384" width="176" height="30"/>
   <object id="184" name="GoombaEntity" x="416" y="416" width="208" height="16"/>
   <object id="186" name="GoombaEntity" x="688" y="400" width="316" height="16"/>
   <object id="190" name="GoombaEntity" x="688" y="400" width="352" height="16"/>

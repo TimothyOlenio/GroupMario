@@ -8,10 +8,9 @@
      {
 // save the area size as defined in Tiled
          var width = settings.width;
+         var height = settings.height;
          
-         var noJump = 0;
-         var yesJump = 1;
-         var jumpState = 0;
+         var jumpingG = false;
 
 // define this here instead of tiled
          settings.image = "Goomba_Walk";
@@ -38,6 +37,10 @@
          x = this.pos.x;
          this.startX = x;
          this.pos.x = this.endX = x + width - this.width;
+         
+         y = this.pos.y;
+         this.startY = y;
+         this.pos.y = this.endY = y + height - this.height;
 //this.pos.x  = x + width - this.width;
 
 // to remember which side we were walking
@@ -54,8 +57,9 @@
          {
              if (this.walkLeft && this.pos.x <= this.startX)
              {
-                 this.walkLeft = false;
-                 this.body.force.x = this.body.maxVel.x;
+                this.walkLeft = false;
+                this.body.force.x = this.body.maxVel.x;
+                setTimeout(this.goombaJump, 1000);
              }
              else if (!this.walkLeft && this.pos.x >= this.endX)
              {
@@ -81,19 +85,26 @@
      
      goombaJump : function ()
      {
-    
-        //switch goes here, still working on logistics of it though
-        switch (this.jumpState)
-            case noJump
-            {
-                    
-            }
-         
-            case yesJump
-            {
-         
-            }
+         if(!this.jumping)
+             {
+                this.jumping = true;
+                // bounce (force jump)
+                this.body.falling = false;
+                this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+                console.log("bitches and hoes");
+                
+             }
+         else 
+             {
+                console.log("bitches and hoes");
+
+             }
      },
+     
+     land : function()
+     {
+        jumping = false; 
+     }, 
 
    /**
      * colision handler

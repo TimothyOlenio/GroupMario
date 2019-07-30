@@ -85,7 +85,7 @@ game.PlayerEntity = me.Entity.extend
               this.body.jumping = 0;
               // set current vel to the maximum defined value
               // gravity will then do the rest
-              this.body.force.y = -this.body.maxVel.y
+              this.body.force.y = -this.body.maxVel.y;
           }
       } 
         else 
