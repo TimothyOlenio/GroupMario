@@ -501,7 +501,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          var height = settings.height;
 
          // define this here instead of tiled
-         settings.image = "plant";
+         settings.image = "mario_walk_right";
 
          // adjust the size setting information to match the sprite size
          // so that the entity object is created with the right size
@@ -548,7 +548,10 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          // make it "alive"
          this.alive = true;
      },
-
+     toggleComeup : function()
+     {
+         this.comeUp = !this.comeUp;
+     },
 
      // manage the enemy movement
      update : function (dt)
@@ -566,6 +569,12 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
              //{
             //     this.faceLeft
              //}
+             
+             if (this.pos.y = this.startY)
+             {
+                 window.setTimeout(this.toggleComeup, 3000);
+             }
+             
              if (this.comeUp && this.pos.y <= this.startY)
              {
                  this.comeUp = false;
@@ -593,10 +602,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
 
-/**
- * colision handler
- * (called when colliding with other objects)
- */
+
      onCollision : function (response, other) {
           switch (response.b.body.collisionType) 
             {
@@ -623,6 +629,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          return true;
      }
  });
+
 
 game.GreenFirePiranhaEntity = me.Sprite.extend(
  {
