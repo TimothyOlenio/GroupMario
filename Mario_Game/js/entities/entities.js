@@ -1,8 +1,5 @@
 game.PlayerEntity = me.Entity.extend
 ({
-    
-
-    
     /**
      * constructor
      */
@@ -38,12 +35,15 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-        this.body.setMaxVelocity(3.2, 14.2);
-        this.body.setFriction(0.6, 0);
+
+        this.body.setMaxVelocity(2.2, 12.2);
+
+        this.body.setFriction(0.4, 0.3);
+
         }        
       else  {
-          this.body.setMaxVelocity(1.8, 11.7);
-          this.body.setFriction(0.6, 0);
+          this.body.setMaxVelocity(1.7, 13);
+          this.body.setFriction(0.4, 0.3);
             }
           
           if (me.input.isKeyPressed('left')) 
