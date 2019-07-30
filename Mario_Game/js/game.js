@@ -56,13 +56,17 @@ var game = {
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.X, "jump", true);
-        me.input.bindKey(me.input.KEY.UP, "jump", true);
+        me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.SPACE, "jump", true);
         me.input.bindKey(me.input.KEY.Z, "run");
         me.input.bindKey(me.input.KEY.ENTER, "start");
+        me.input.bindKey(me.input.KEY.DOWN, "down");
 
 // -- Start the game.
         
-        me.state.change(me.state.MENU);
+
+        me.state.change(me.state.PLAY); 
+        //me.state.change(me.state.MENU);         //Once Fixed
+
     }
 };
