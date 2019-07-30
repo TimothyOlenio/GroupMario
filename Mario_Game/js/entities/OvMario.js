@@ -13,12 +13,6 @@
          settings.framewidth = settings.width = 16;
          settings.frameheight = settings.height = 16;
          this._super(me.Sprite, 'init', [x, y , settings]);
-
-           
-         //this.renderable.anchorPoint.set(1, 0);
-         // define a basic walking animation
-         //this.addAnimation("walk",  [...]);
-         // define a standing animation (using the first frame)
          this.addAnimation("stand",  [0, 1,]);
          // set the standing animation as default
          this.setCurrentAnimation("stand");
@@ -38,4 +32,14 @@
          // set the display to follow our position on both axis
          me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
      },
+     update : function (dt) {
+    if (me.input.isKeyPressed("left"))    {
+         this.body.force.x = -this.body.maxVel.x;
+     } else if (me.input.isKeyPressed("right")) {
+        this.body.force.x = this.body.maxVel.x;
+    } else {
+        this.body.force.x = 0;
+    }
+}
+
  });
