@@ -94,6 +94,37 @@ game.PlayerEntity = me.Entity.extend
           // --- Sets Jumping to 1, so Mario cant jump mid air
           this.body.jumping = 1;
       }
+        
+        
+    
+        
+        if(me.input.isKeyPressed('start'))
+        {
+            console.log("Enter");               //Test, Delete later
+            if(me.state.isCurrent(me.state.MENU))
+            {
+                console.log("Working");         //Test, Delete later
+                //Set this to TITLE when working
+                me.state.change(me.state.START);
+            }
+            else
+            {
+                console.log("Broken");          //Test, Delete later
+                // Insert Pause Code Here
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
       // apply physics to the body (this moves the entity)
         this.body.update(dt);

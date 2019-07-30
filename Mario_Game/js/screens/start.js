@@ -1,3 +1,6 @@
+// Level 1-1
+
+
 game.StartScreen = me.ScreenObject.extend({
     /**
      *  action to perform on state change
@@ -5,7 +8,7 @@ game.StartScreen = me.ScreenObject.extend({
     onResetEvent: function() {
         // reset the score
         game.data.score = 0;
-        me.levelDirector.loadLevel("Title_Screen");
+        me.levelDirector.loadLevel("Mario_1-1");
         // Add our HUD to the game world, add it last so that this is on top of the rest.
         // Can also be forced by specifying a "Infinity" z value to the addChild function.
         this.HUD = new game.HUD.Container();
