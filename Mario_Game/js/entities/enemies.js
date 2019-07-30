@@ -79,7 +79,7 @@
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
      
-     goombaJump : function ()
+  /*   goombaJump : function ()
      {
     
         //switch goes here, still working on logistics of it though
@@ -94,7 +94,8 @@
          
             }
      },
-
+*/
+     
    /**
      * colision handler
      * (called when colliding with other objects)
@@ -398,43 +399,6 @@ game.KoopaEntity = me.Sprite.extend(
        console.log("closer");   
      }
 });
-
-
-
-/**
- * Overworld Mario Entity
- *
-
- game.LilMario = me.Sprite.extend({
-     // constructor
-     init:function (x, y, settings) {
-         // call the parent constructor
-         this._super(me.Sprite, 'init', [x, y , settings]);
-
-         // define a basic walking animation
-         this.addAnimation("walk",  [...]);
-         // define a standing animation (using the first frame)
-         this.addAnimation("stand",  [...]);
-         // set the standing animation as default
-         this.setCurrentAnimation("stand");
-
-         // add a physic body
-         this.body = new me.Body(this);
-         // add a default collision shape
-         this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-         // configure max speed and friction
-         this.body.setMaxVelocity(3, 15);
-         this.body.setFriction(0.4, 0);
-
-         // enable physic collision (off by default for basic me.Renderable)
-         this.isKinematic = false;
-
-         // set the display to follow our position on both axis
-         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-     },
- }); 
-
-*/
 
 /**
  * an enemy Entity
