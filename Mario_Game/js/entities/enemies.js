@@ -520,6 +520,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          // configure max speed and friction
          this.body.setMaxVelocity(0.25, 1.5);
          this.body.setFriction(0.4, 0);
+         this.body.gravity = 0;
 
          // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
@@ -542,11 +543,17 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
 
          // to remember which side we were walking
          this.comeUp = false;
-         this.faceLeft = true;
 
-
+/*this.timer = me.timer.setInterval(function () {
+        //Execute Code Here
+    }, 1000);
+         
+         */
          // make it "alive"
          this.alive = true;
+         
+         this.counter = 0;
+         
      },
      toggleComeup : function()
      {
@@ -558,32 +565,45 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
      {
          if (this.alive)
          {
-             //this.flipX(this.faceLeft);
-             //console.log(this.player);
-             //make it face mario
-             //if (this.player.pos.x <= this.pos.x)
-             //{
-             //    this.faceLeft = true;
-             //}
-             //else    
-             //{
-            //     this.faceLeft
-             //}
-             
-             if (this.pos.y = this.startY)
+            /*if (this.comeUp && this.pos.y <= this.startY)
+            {
+                this.comeUp = false;
+                this.body.force.y = this.body.maxVel.y;
+            }
+            else if (!this.comeUp && this.pos.y >= this.endY)
+            {
+                this.comeUp = true;
+                this.body.force.y = -this.body.maxVel.y;
+            }*/
+            this.counter += dt;
+            
+            if(this.counter >= 1000.0)
              {
-                 window.setTimeout(this.toggleComeup, 3000);
+                if (this.comeUp && this.pos.y <= this.startY)
+                {
+                    console.log(this.counter);
+                    this.comeUp = false;
+                    this.body.force.y = this.body.maxVel.y;
+                    this.counter = 0;
+                }
+                else if (!this.comeUp && this.pos.y <= this.endY)
+                {
+                    console.log(this.counter);
+                    this.comeUp = true;
+                    this.body.force.y = -this.body.maxVel.y;
+                    this.counter = 0;
+                }
+                 
              }
-             
-             if (this.comeUp && this.pos.y <= this.startY)
+             else if(this.comeUp && this.pos.y >= this.startY)
              {
-                 this.comeUp = false;
-                 this.body.force.y = this.body.maxVel.y;
+                 this.body.force.y = 0;
+                 console.log("STOP");
              }
-             else if (!this.comeUp && this.pos.y >= this.endY)
+             else if(!this.comeUp && this.pos.y <= this.endY)
              {
-                 this.comeUp = true;
-                 this.body.force.y = -this.body.maxVel.y;
+                 this.body.force.y = 0;
+                 console.log("STOP");
              }
          }
          else
@@ -613,6 +633,11 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
                     return false;
                 }
                 
+                if (other.type === "floor") 
+                {
+                    return false;
+                }
+                
             }
          
          if (response.b.body.collisionType !== me.collision.types.WORLD_SHAPE) 
@@ -623,7 +648,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
              {
                  this.renderable.flicker(750);
              }
-             return false;
+             //return false;
          }
          // Make all other objects solid
          return true;
