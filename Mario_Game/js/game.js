@@ -63,6 +63,9 @@ var game = {
 
 // -- Start the game.
         
-        me.state.change(me.state.MENU);
+        me.state.change(me.state.START); 
+        //me.state.change(me.state.MENU);         //Once Fixed
+        
+        
     }
 };
