@@ -9,8 +9,12 @@
 // save the area size as defined in Tiled
          var width = settings.width;
          var height = settings.height;
+         var canFly = true;
+         var moving = true;
+         this.moving = moving;
          
-         var jumpingG = false;
+         var counter = 0;
+         
 
 // define this here instead of tiled
          settings.image = "Goomba_Walk";
@@ -53,26 +57,33 @@
 // manage the enemy movement
      update : function (dt)
      {
-         if (this.alive)
-         {
-             if (this.walkLeft && this.pos.x <= this.startX)
-             {
-                this.walkLeft = false;
-                this.body.force.x = this.body.maxVel.x;
-                setTimeout(this.goombaJump, 1000);
-             }
-             else if (!this.walkLeft && this.pos.x >= this.endX)
-             {
-                 this.walkLeft = true;
-                 this.body.force.x = -this.body.maxVel.x;
-             }
+        if (this.moving == true)
+            {
+                this.canFly;
 
-             this.flipX(this.walkLeft);
-         }
-         else
-         {
-             this.body.force.x = 0;
-         }
+              if (this.alive)
+                {  
+                    if (this.walkLeft && this.pos.x <= this.startX)
+                    {
+                        this.walkLeft = false;
+                        this.body.force.x = this.body.maxVel.x;
+                
+                    }
+              else if (!this.walkLeft && this.pos.x >= this.endX)
+                {
+                    this.walkLeft = true;
+                    this.body.force.x = -this.body.maxVel.x; 
+                }
+                this.flipX(this.walkLeft);    
+                }
+                
+                else
+                {
+                    this.body.force.x = 0;
+                }
+                
+            }
+         
 // check & update movement
          this.body.update(dt);
 
@@ -85,26 +96,33 @@
      
      goombaJump : function ()
      {
-         if(!this.jumping)
+         if(this.canFly)
              {
-                this.jumping = true;
-                // bounce (force jump)
-                this.body.falling = false;
-                this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-                console.log("bitches and hoes");
+                
+                if (this.canFly)
+                    {
+                        this.counter += dt;
+                        this.body.force.y = -this.body.maxVel.y;
+                        
+                    }
+                if (this.counter >= 500)
+                    {
+                        this.counter = 0;
+                        
+                    }
+                else 
+                    {
+                        this.body.force.y = 0;
+                    } 
                 
              }
          else 
              {
-                console.log("bitches and hoes");
-
+                console.log("bitches");
+                this.body.force.y = 0;
              }
      },
-     
-     land : function()
-     {
-        jumping = false; 
-     }, 
+ 
 
    /**
      * colision handler
