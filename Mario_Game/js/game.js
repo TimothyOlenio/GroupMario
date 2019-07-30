@@ -59,6 +59,7 @@ var game = {
         me.input.bindKey(me.input.KEY.UP, "jump", true);
         me.input.bindKey(me.input.KEY.SPACE, "jump", true);
         me.input.bindKey(me.input.KEY.Z, "run");
+        me.input.bindKey(me.input.KEY.ENTER, "start");
 
 // -- Start the game.
         

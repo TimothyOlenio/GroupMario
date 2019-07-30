@@ -78,12 +78,15 @@
 // return true if we moved or if the renderable was updated
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
-     
+
   /*   goombaJump : function ()
+
+
      {
     
         //switch goes here, still working on logistics of it though
         switch (this.jumpState)
+        {
             case noJump
             {
                     
@@ -93,9 +96,11 @@
             {
          
             }
+
      },
 */
      
+
    /**
      * colision handler
      * (called when colliding with other objects)
