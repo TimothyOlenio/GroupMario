@@ -32,8 +32,8 @@
 // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
-         this.body.setMaxVelocity(0.6, 6);
-         this.body.setFriction(0.4, 0);
+         this.body.setMaxVelocity(0.1, 3);
+         this.body.setFriction(0.4, 2);
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
@@ -53,20 +53,28 @@
 // make it "alive"
          this.alive = true;
      },
+     
+     onActivateEvent : function () {
+     var _this = this;
+     this.timer = me.timer.setInterval(function () {
+     _this.body.force.y += _this.body.maxVel.y;
+     }, 1000)
+     },
 
 // manage the enemy movement
      update : function (dt)
      {
         if (this.moving == true)
             {
-
+                this.goombaJump();
               if (this.alive)
                 {  
                     if (this.walkLeft && this.pos.x <= this.startX)
                     {
                         this.walkLeft = false;
                         this.body.force.x = this.body.maxVel.x;
-                
+                        me.timer.setInterval(this.goombaJump, 1000);
+                        
                     }
                     else if (!this.walkLeft && this.pos.x >= this.endX)
                     {
@@ -76,30 +84,17 @@
                 this.flipX(this.walkLeft);    
                 }
                 
+                
                 else
                 {
                     this.body.force.x = 0;
                 }
                 
-                if(!this.canFly)
-                {
-                
-                    if (this.moving)
-                        {
-                        this.goombaJump();
-                        }
-                    if (this.counter >= 500)
-                        {
-                        this.counter = 0;
-                        }
-                    else 
-                        {
-                        this.body.force.y = 0;
-                        } 
-                
-                }
-                
             }
+
+         
+
+         
          
 // check & update movement
          this.body.update(dt);
@@ -111,32 +106,35 @@
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
      
-     goombaJump : function ()
+     goombaJump : function (dt)
      {
-         this.timer = me.timer.setInterval(function ()
-         {
-             if(this.canFly)
+         if (this.alive)
              {
-                
-                if (this.moving)
+                 if (!this.body.jumping && !this.body.falling && !this.body.jumping == 1)
+                    {   
+                        // --- Sets Jumping to 0, so mario can jump
+                        this.body.jumping = 0;
+                        // set current vel to the maximum defined value
+                        // gravity will then do the rest
+                        this.body.force.y = -this.body.maxVel.y;   
+                    } 
+                 else 
                     {
-                        this.counter += dt;
-                        // bounce (force jump)
-                        this.body.falling = false;
-                        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-
-                        // set the jumping flag
-                        this.body.jumping = true;
-                        console.log("yes");
+                        this.onActivateEvent;
+                        this.body.force.y = 0;
+          // --- Sets Jumping to 1, so Mario cant jump mid air
+          this.body.jumping = 1;
                     }
              }
-             else 
-             {
-                console.log("bitches");
-            }
-         }, 1000)
+
+         this.body.update(dt);
+         
+         
+         
+         // return true if we moved or if the renderable was updated
+        return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0); 
      },
- 
+
 
    /**
      * colision handler
