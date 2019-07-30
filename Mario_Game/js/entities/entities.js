@@ -38,7 +38,7 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-        this.body.setMaxVelocity(2.2, 12.2);
+        this.body.setMaxVelocity(3.2, 14.2);
         this.body.setFriction(0.6, 0);
         }        
       else  {
@@ -97,6 +97,8 @@ game.PlayerEntity = me.Entity.extend
         
         
     
+        var pause = false;
+        
         
         if(me.input.isKeyPressed('start'))
         {
@@ -110,6 +112,18 @@ game.PlayerEntity = me.Entity.extend
             else
             {
                 console.log("Broken");          //Test, Delete later
+                if(pause)
+                {
+                    console.log("Unpause");
+                    pause = false;
+
+                }
+                else
+                {
+                    console.log("Pause");
+                    pause = true;
+;
+                }
                 // Insert Pause Code Here
             }
         }
