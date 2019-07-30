@@ -7,10 +7,11 @@ game.TitleScreen = me.ScreenObject.extend({
      */
     onResetEvent: function() {
         ; // TODO
-        me.levelDirector.loadLevel("Mario_1-1");
+        me.levelDirector.loadLevel("Mario_Title");
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
     },
+    
     
 
     /**

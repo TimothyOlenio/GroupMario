@@ -74,6 +74,16 @@ game.resources = [
         "type": "image",
         "src": "data/img/Leaf.png"
     },
+     {
+        "name": "Title",
+        "type": "image",
+        "src": "data/img/Title.png"
+    },
+    {
+        "name": "Mario_Title",
+        "type": "tmx",
+        "src": "data/map/Mario_Title.tmx"
+    },
     {
         "name": "Mario_1-1",
         "type": "tmx",
@@ -83,6 +93,11 @@ game.resources = [
         "name": "Mario_Overworld1",
         "type": "tmx",
         "src": "data/map/Mario_Overworld1.tmx"
+    },
+    {
+        "name": "TitleScreen",
+        "type": "tsx",
+        "src": "data/map/TitleScreen.tsx"
     },
     {
         "name": "00001",
