@@ -9,7 +9,7 @@
 // save the area size as defined in Tiled
          var width = settings.width;
          var height = settings.height;
-         var canFly = true;
+         var canFly = false;
          var moving = true;
          this.moving = moving;
          
@@ -59,7 +59,6 @@
      {
         if (this.moving == true)
             {
-                this.canFly;
 
               if (this.alive)
                 {  
@@ -69,17 +68,35 @@
                         this.body.force.x = this.body.maxVel.x;
                 
                     }
-              else if (!this.walkLeft && this.pos.x >= this.endX)
-                {
-                    this.walkLeft = true;
-                    this.body.force.x = -this.body.maxVel.x; 
-                }
+                    else if (!this.walkLeft && this.pos.x >= this.endX)
+                    {
+                        this.walkLeft = true;
+                        this.body.force.x = -this.body.maxVel.x; 
+                    }
                 this.flipX(this.walkLeft);    
                 }
                 
                 else
                 {
                     this.body.force.x = 0;
+                }
+                
+                if(!this.canFly)
+                {
+                
+                    if (this.moving)
+                        {
+                        this.goombaJump();
+                        }
+                    if (this.counter >= 500)
+                        {
+                        this.counter = 0;
+                        }
+                    else 
+                        {
+                        this.body.force.y = 0;
+                        } 
+                
                 }
                 
             }
@@ -96,31 +113,28 @@
      
      goombaJump : function ()
      {
-         if(this.canFly)
+         this.timer = me.timer.setInterval(function ()
+         {
+             if(this.canFly)
              {
                 
-                if (this.canFly)
+                if (this.moving)
                     {
                         this.counter += dt;
-                        this.body.force.y = -this.body.maxVel.y;
-                        
+                        // bounce (force jump)
+                        this.body.falling = false;
+                        this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+
+                        // set the jumping flag
+                        this.body.jumping = true;
+                        console.log("yes");
                     }
-                if (this.counter >= 500)
-                    {
-                        this.counter = 0;
-                        
-                    }
-                else 
-                    {
-                        this.body.force.y = 0;
-                    } 
-                
              }
-         else 
+             else 
              {
                 console.log("bitches");
-                this.body.force.y = 0;
-             }
+            }
+         }, 1000)
      },
  
 
