@@ -19,6 +19,8 @@ game.PlayerEntity = me.Entity.extend
         this.renderable.addAnimation("walk",  [0, 1]);
 // --- Jumping Animation
         this.renderable.addAnimation("jump",  [0, 2]);
+// --- Ducking Animation
+        this.renderable.addAnimation("duck",  [3]);
 
 //---- define a standing animation (using the first frame)
         this.renderable.addAnimation("stand",  [0]);
@@ -45,7 +47,7 @@ game.PlayerEntity = me.Entity.extend
           this.body.setFriction(0.4, 0.2);
             }
           
-          if (me.input.isKeyPressed('left')) 
+          if (me.input.isKeyPressed('left') && !me.input.isKeyPressed('down')) 
             {
 
           // flip the sprite on horizontal axis
@@ -57,7 +59,7 @@ game.PlayerEntity = me.Entity.extend
                 {
               this.renderable.setCurrentAnimation("walk");
                 }
-            } else if (me.input.isKeyPressed('right')) 
+            } else if (me.input.isKeyPressed('right') && !me.input.isKeyPressed('down')) 
                     {
 
                       // unflip the sprite
@@ -94,6 +96,26 @@ game.PlayerEntity = me.Entity.extend
           this.body.jumping = 1;
       }
         
+    
+    if(me.input.isKeyPressed('down'))
+    {
+        this.renderable.setCurrentAnimation("duck");
+        if (me.input.isKeyPressed('left'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(true);
+        }
+        else if (me.input.isKeyPressed('right'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(false);
+        }
+    }
+        
+    //if(me.input.isKeyPressed('down') && this.x == pipeEnterance1.x && (this.y == pipeEnterance1.y - 1))    
+        
+        
+        
         
     
         var pause = false;
@@ -113,15 +135,17 @@ game.PlayerEntity = me.Entity.extend
                 console.log("Broken");          //Test, Delete later
                 if(pause)
                 {
-                    console.log("Unpause");
-                    pause = false;
+                    console.log("Unpause");     //Test, Delete later
+                    this.pause = (false);
+                    //me.state.resume();
 
                 }
                 else
                 {
-                    console.log("Pause");
-                    pause = true;
-;
+                    console.log("Pause");       //Test, Delete later
+                    this.pause = (true);
+                    //me.state.pause();
+                    
                 }
                 // Insert Pause Code Here
             }

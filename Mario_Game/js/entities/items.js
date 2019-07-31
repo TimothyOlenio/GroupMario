@@ -42,7 +42,7 @@ game.MushroomEntity = me.CollectableEntity.extend(
         // call the parent constructor
         this._super(me.CollectableEntity, 'init', [x, y, settings]);
         // save the area size as defined in Tiled
-         var width = settings.width;
+        var width = settings.width;
         settings.image = "Mushroom";
         settings.frameWidth = settings.width = 16;
         settings.frameHeight = settings.height = 16;
