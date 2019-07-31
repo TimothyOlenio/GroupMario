@@ -14,10 +14,20 @@ game.resources = [
         "type": "image",
         "src": "data/img/RedKoopa_Walk.png"
     },
+        {
+        "name": "RedKoopa_Fly",
+        "type": "image",
+        "src": "data/img/RedKoopa_Fly.png"
+    },
     {
         "name": "Goomba_Walk",
         "type": "image",
         "src": "data/img/Goomba_Walk.png"
+    },
+        {
+        "name": "Goomba_Fly",
+        "type": "image",
+        "src": "data/img/Goomba_Fly.png"
     },
     {
         "name": "plant",

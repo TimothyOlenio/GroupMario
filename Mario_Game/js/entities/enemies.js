@@ -30,6 +30,8 @@
          this.body.setFriction(0.4, 0);
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
+         
+
 
 // set start/end position based on the initial area size
          x = this.pos.x;
@@ -77,14 +79,6 @@
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
 
-   goombaJump : function ()
-
-     {
-        me.body.pos.y = -this.body.maxVel.y * me.timer.tick;
-     },
-
-     
-
    /**
      * colision handler
      * (called when colliding with other objects)
@@ -95,7 +89,7 @@
             switch (response.b.body.collisionType) 
             {
                 case me.collision.types.WORLD_SHAPE:
-                // Simulate a platform object
+                // RIGGSBY NOTE: OTHER.TYPE IS NOT LEGIT, AS LONG AS IF IS TRUE IT WILL RUN
                 if (other.type === "platform") 
                 {
                     if (this.body.falling &&
@@ -117,15 +111,16 @@
                 }
                     break;
 
-            case me.collision.types.ENEMY_OBJECT:
+                case me.collision.types.ENEMY_OBJECT:
+                    
                 if ((response.overlapV.y>0) && !this.body.jumping) 
-            {
-                this.onDeath();
-            }
-            else 
-            {
+                {
+                    this.onDeath();
+                }
+                else 
+                {
                 
-            }
+                }
 
                 // Fall through
 
@@ -158,14 +153,10 @@
 // save the area size as defined in Tiled
          var width = settings.width;
          var height = settings.height;
-         var jumpPls = setInterval(this.goombaJump, 1000);
-         var noJump = 0;
-         var yesJump = 1;
-         var jumpState = 0;
          this.counter = 0;
 
 // define this here instead of tiled
-         settings.image = "Goomba_Walk";
+         settings.image = "Goomba_Fly";
 
 // adjust the size setting information to match the sprite size
 // so that the entity object is created with the right size
@@ -180,10 +171,13 @@
 // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
-         this.body.setMaxVelocity(0.6, 6);
-         this.body.setFriction(0.4, 0);
+         this.body.setMaxVelocity(1.5, 6);
+         this.body.setFriction(0, 0);
+         this.body.force.set(2, 10);
+         this.speed = this.speed / 2;
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
+
 
 // set start/end position based on the initial area size
          x = this.pos.x;
@@ -219,10 +213,12 @@
              }
              
              this.counter += dt;
-             if (this.counter >= 500)
+             if (this.counter >= 250)
              {
-                this.body.force.y = -100000;
+                this.body.force.y = -50;
                 this.counter = 0;
+                this.body.force.x = this.body.force.x / 10;
+                this.body.pos.x = this.body.pos.x + 10;
              }
              
              else     
@@ -245,15 +241,6 @@
 // return true if we moved or if the renderable was updated
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
-
-   goombaJump : function ()
-
-
-     {
-        me.body.pos.y = -this.body.maxVel.y * me.timer.tick;
-     },
-
-     
 
    /**
      * colision handler
@@ -345,6 +332,7 @@ game.KoopaEntity = me.Sprite.extend(
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
+
 // set start/end position based on the initial area size
          x = this.pos.x;
          this.startX = x;
@@ -413,7 +401,7 @@ game.KoopaEntity = me.Sprite.extend(
                 }
              break;
                 
-            case me.collision.types.ENEMY_OBJECT:
+            case me.collision.types.PLAYER_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
                 this.onDeath();
@@ -451,19 +439,15 @@ game.KoopaEntity = me.Sprite.extend(
 // save the area size as defined in Tiled
          var width = settings.width;
          var height = settings.height;
-         var jumpPls = setInterval(this.goombaJump, 1000);
-         var noJump = 0;
-         var yesJump = 1;
-         var jumpState = 0;
          this.counter = 0;
 
 // define this here instead of tiled
-         settings.image = "RedKoopa_Walk";
+         settings.image = "RedKoopa_Fly";
 
 // adjust the size setting information to match the sprite size
 // so that the entity object is created with the right size
          settings.framewidth = settings.width = 16;
-         settings.frameheight = settings.height = 16;
+         settings.frameheight = settings.height = 27;
 
 // call the parent constructor
          this._super(me.Sprite, 'init', [x, y , settings]);
@@ -473,10 +457,13 @@ game.KoopaEntity = me.Sprite.extend(
 // add a default collision shape
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
-         this.body.setMaxVelocity(0.5, 6);
-         this.body.setFriction(0.4, 0);
+         this.body.setMaxVelocity(1.5, 6);
+         this.body.setFriction(0, 0);
+         this.body.force.set(2, 10);
+         this.speed = this.speed / 2;
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
+
 
 // set start/end position based on the initial area size
          x = this.pos.x;
@@ -511,28 +498,20 @@ game.KoopaEntity = me.Sprite.extend(
                  this.body.force.x = -this.body.maxVel.x;
              }
              
-             if (this.jumpPls && this.pos.y <= this.startX)
-             {
-                 this.walkLeft = false;
-                 this.body.force.x = this.body.maxVel.x;
-             }
-             else if (!this.jumpPls && this.pos.x >= this.endX)
-             {
-                 this.walkLeft = true;
-                 this.body.force.x = -this.body.maxVel.x;
-             }
-             
              this.counter += dt;
-             if (this.counter >= 500)
+             if (this.counter >= 250)
              {
-                this.body.force.y = -100000;
+                this.body.force.y = -50;
                 this.counter = 0;
+                this.body.force.x = this.body.force.x / 10;
+                this.body.pos.x = this.body.pos.x + 10;
              }
              
              else     
              {
                  this.body.force.y = 0;
              }
+
              this.flipX(this.walkLeft);
          }
          else
@@ -548,15 +527,6 @@ game.KoopaEntity = me.Sprite.extend(
 // return true if we moved or if the renderable was updated
          return (this._super(me.Sprite, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
-
-   goombaJump : function ()
-
-
-     {
-        //me.body.pos.y = -this.body.maxVel.y * me.timer.tick;
-     },
-
-     
 
    /**
      * colision handler
@@ -590,15 +560,12 @@ game.KoopaEntity = me.Sprite.extend(
                 }
                     break;
 
-            case me.collision.types.ENEMY_OBJECT:
-                if ((response.overlapV.y>0) && !this.body.jumping) 
+            case me.collision.types.PLAYER_OBJECT:
+            if ((response.overlapV.y>0) && !this.body.jumping) 
             {
                 this.onDeath();
             }
-            else 
-            {
-                
-            }
+
 
                 // Fall through
 
@@ -732,7 +699,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
      {
          // save the area size as defined in Tiled
          var height = settings.height;
-
+         
          // define this here instead of tiled
          settings.image = "plant";
 
@@ -756,6 +723,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
 
          // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
+
 
 
          // define the x so that the entity can flip when mario jumps over it
@@ -809,11 +777,13 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
                  this.comeUp = true;
                  this.body.force.y = -this.body.maxVel.y;
              }
+             
          }
          else
          {
              this.body.force.y = 0;
          }
+
 
          // check & update movement
          this.body.update(dt);
@@ -887,6 +857,7 @@ game.GreenFirePiranhaEntity = me.Sprite.extend(
 
          // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
+
 
 
          // define the x so that the entity can flip when mario jumps over it
