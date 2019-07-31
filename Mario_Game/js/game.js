@@ -50,6 +50,8 @@ var game = {
         me.pool.register("PiranhaEntity", game.PiranhaEntity);
         me.pool.register("RedFirePiranhaEntity", game.RedFirePiranhaEntity);
         me.pool.register("GreenFirePiranhaEntity", game.GreenFirePiranhaEntity);
+        me.pool.register("pipeEnterance", game.pipeEnterance);
+        me.pool.register("pipeExit", game.pipeExit);
         me.pool.register("LilMario", game.LilMario);
 
         

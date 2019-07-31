@@ -78,7 +78,7 @@ game.PlayerEntity = me.Entity.extend
                       this.renderable.setCurrentAnimation("stand");
                     }     
 
-      if (me.input.isKeyPressed('jump')) 
+      if (me.input.isKeyPressed('jump') || me.input.isKeyPressed('up')) 
       {
           if (!this.body.jumping && !this.body.falling && !this.body.jumping == 1)
           {   
