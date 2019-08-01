@@ -222,13 +222,7 @@ game.PlayerEntity = me.Entity.extend
                 }
                     break;
                     
-                    
-                    
-                
-                    
-                    
-                    
-//maybe stuff for wing goomba
+ 
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
@@ -250,6 +244,7 @@ game.PlayerEntity = me.Entity.extend
                 // Load the Mario_Overworld1 map, set to Mario_1-1 for testing would need to change this line if using multiple worlds, possible would need a lot more if/else statements for going back to the overworld and keeping Lives/Score/ect.   Currently commented out as its annoying the hell out of me when testing.
                 
         me.levelDirector.loadLevel("Mario_1-1");
+               // (me.state.isCurrent(me.state.MENU)
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
                 

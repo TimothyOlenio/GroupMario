@@ -37,6 +37,7 @@ var game = {
 
 // -- add our player entity in the entity pooc
         
+
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("GoombaEntity", game.GoombaEntity);
         me.pool.register("CoinEntity", game.CoinEntity);
@@ -53,6 +54,7 @@ var game = {
         me.pool.register("pipeEnterance", game.pipeEnterance);
         me.pool.register("pipeExit", game.pipeExit);
         me.pool.register("LilMario", game.LilMario);
+        //me.pool.register("PressEnter", game.PressEnter);
 
         
 // -- Enable Keyboard 
