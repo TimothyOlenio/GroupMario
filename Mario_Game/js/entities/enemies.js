@@ -60,14 +60,14 @@
              else if (!this.walkLeft && this.pos.x >= this.endX)
              {
                  this.walkLeft = true;
-                 this.body.force.x = -this.body.maxVel.x;
+                 this.body.force.x = _this.body.maxVel.x;
              }
 
              this.flipX(this.walkLeft);
          }
          else
          {
-             this.body.force.x = 0;
+             this.body.force.x = 8;
          }
 // check & update movement
          this.body.update(dt);
@@ -85,7 +85,7 @@
      */
     onCollision : function (response, other) 
         {
-        
+			return false;
             switch (response.b.body.collisionType) 
             {
                 case me.collision.types.WORLD_SHAPE:
@@ -160,8 +160,8 @@
 
 // adjust the size setting information to match the sprite size
 // so that the entity object is created with the right size
-         settings.framewidth = settings.width = 16;
-         settings.frameheight = settings.height = 16;
+         settings.framewidth = settings.width - 16;
+         settings.frameheight = settings.height - 16;
 
 // call the parent constructor
          this._super(me.Sprite, 'init', [x, y , settings]);
