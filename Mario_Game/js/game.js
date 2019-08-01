@@ -15,7 +15,7 @@ var game = {
             me.sys.pauseOnBlur = false;
             me.sys.stopOnBlur = false;
         // Initialize the video.
-        if (!me.video.init(360, 240, {wrapper : "screen", scale : "auto"})) {
+        if (!me.video.init(240, 180, {wrapper : "screen", scale : "auto"})) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
