@@ -18,7 +18,7 @@ game.HUD.Container = me.Container.extend({
         this.floating = true;
 
         // give a name
-        this.name = "HuD";
+        this.name = "HUD";
 
         // add our child score object at the top left corner
         this.addChild(new game.HUD.ScoreItem(5, 5));
@@ -40,7 +40,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
         this._super(me.Renderable, 'init', [x, y, 10, 10]);
 
         // local copy of the global score
-        this.Score = -1;
+        this.score = -1;
     },
 
     /**
@@ -49,8 +49,8 @@ game.HUD.ScoreItem = me.Renderable.extend({
     update : function () {
         // we don't do anything fancy here, so just
         // return true if the score has been updated
-        if (this.score !== game.data.Score) {
-            this.score = game.data.Score;
+        if (this.score !== game.data.score) {
+            this.score = game.data.score;
             return true;
         }
         return false;
