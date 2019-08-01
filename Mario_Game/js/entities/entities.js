@@ -37,12 +37,11 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-
         this.body.setMaxVelocity(2.3, 11);
         this.body.setFriction(0.4, -0.2);
-
         }        
       else  {
+
           this.body.setMaxVelocity(2, 12.8);
           this.body.setFriction(0.4, 0.2);
             }
