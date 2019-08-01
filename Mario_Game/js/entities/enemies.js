@@ -85,6 +85,7 @@
      */
     onCollision : function (response, other) 
         {
+        
             switch (response.b.body.collisionType) 
             {
                 case me.collision.types.WORLD_SHAPE:
@@ -153,7 +154,7 @@
          var width = settings.width;
          var height = settings.height;
          this.counter = 0;
-
+         
 // define this here instead of tiled
          settings.image = "Goomba_Fly";
 
@@ -171,9 +172,9 @@
          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
 // configure max speed and friction
          this.body.setMaxVelocity(1.5, 6);
-         this.body.setFriction(0, 0);
+         this.body.setFriction(0, 0.2);
          this.body.force.set(2, 10);
-         this.speed = this.speed / 2;
+         
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
@@ -275,9 +276,11 @@
 
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
-            {
-                this.onDeath();
-            }
+                {   
+                    me.game.world.removeChild(this);
+                    me.pool.pull("GoombaEntity", this.x, this.y);
+                    me.game.world.addChild("GoombaEntity");
+                }   
             
                 // Fall through
 
