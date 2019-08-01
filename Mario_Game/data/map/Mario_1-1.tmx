@@ -104,19 +104,19 @@
 </data>
  </layer>
  <objectgroup id="25" name="Piranhas">
-  <object id="211" name="RedFirePiranhaEntity" x="376" y="352" width="24" height="128">
+  <object id="211" name="RedFirePiranhaEntity" x="376" y="352" width="24" height="80">
    <properties>
     <property name="pauseDur" type="int" value="3000"/>
    </properties>
   </object>
-  <object id="212" name="GreenFirePiranhaEntity" x="1880" y="352" width="24" height="128">
-   <properties>
-    <property name="pauseDur" type="int" value="3000"/>
-   </properties>
-  </object>
-  <object id="213" name="PiranhaEntity" x="1816" y="368" width="24" height="112">
+  <object id="212" name="GreenFirePiranhaEntity" x="1880" y="352" width="24" height="80">
    <properties>
     <property name="pauseDur" type="int" value="2500"/>
+   </properties>
+  </object>
+  <object id="213" name="PiranhaEntity" x="1816" y="368" width="24" height="64">
+   <properties>
+    <property name="pauseDur" type="int" value="2000"/>
    </properties>
   </object>
  </objectgroup>
@@ -361,19 +361,11 @@
   <object id="181" x="1616" y="384" width="16" height="16"/>
   <object id="204" x="1456" y="144" width="16" height="16"/>
  </objectgroup>
- <objectgroup id="25" name="Piranhas">
-  <object id="211" name="RedFirePiranhaEntity" x="368" y="352" width="32" height="80">
-   <properties>
-    <property name="pauseDur" type="int" value="1000"/>
-   </properties>
-  </object>
-  <object id="212" name="GreenFirePiranhaEntity" x="1872" y="352" width="32" height="64" visible="0"/>
-  <object id="213" name="PiranhaEntity" x="1808" y="368" width="32" height="64"/>
- </objectgroup>
+ <objectgroup id="25" name="Piranhas"/>
  <objectgroup id="14" name="Collision Pipes">
   <object id="85" type="pipes" x="368.182" y="384.182" width="31.6364" height="48.3636"/>
   <object id="86" type="pipes" x="1808.18" y="399.818" width="31.6364" height="32.3636"/>
-  <object id="87" type="pipes" x="1872.18" y="383.818" width="31.6364" height="47.8182"/>
+  <object id="87" type="pipes" x="1872" y="384" width="31.6364" height="47.8182"/>
   <object id="88" x="2272.36" y="399.636" width="30.7273" height="32.9091"/>
   <object id="89" x="2272.36" y="127.818" width="31.2727" height="192.364"/>
   <object id="90" x="2336" y="400" width="31.8182" height="32.1818"/>
@@ -399,7 +391,7 @@
   <object id="120" x="641" y="417" width="460" height="31"/>
   <object id="121" x="1169" y="433" width="350" height="16"/>
   <object id="122" x="1553" y="433" width="78" height="15"/>
-  <object id="123" x="1681" y="432" width="575" height="15"/>
+  <object id="123" x="1680" y="432" width="575" height="15"/>
   <object id="124" x="2273" y="432" width="575" height="16"/>
   <object id="126" x="11" y="7" width="6" height="424"/>
   <object id="170" name="me.LevelEntity" x="2704" y="352" width="14" height="14">
