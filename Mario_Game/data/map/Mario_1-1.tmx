@@ -104,9 +104,9 @@
 </data>
  </layer>
  <objectgroup id="25" name="Piranhas">
-  <object id="211" name="RedFirePiranhaEntity" x="375" y="352" width="25" height="128"/>
-  <object id="212" name="GreenFirePiranhaEntity" x="1879" y="352" width="25" height="128"/>
-  <object id="213" name="PiranhaEntity" x="1815" y="368" width="25" height="112"/>
+  <object id="211" name="RedFirePiranhaEntity" x="376" y="352" width="24" height="128"/>
+  <object id="212" name="GreenFirePiranhaEntity" x="1880" y="352" width="24" height="128"/>
+  <object id="213" name="PiranhaEntity" x="1816" y="368" width="24" height="112"/>
  </objectgroup>
  <layer id="3" name="Background Objects" width="178" height="45">
   <data encoding="csv">
