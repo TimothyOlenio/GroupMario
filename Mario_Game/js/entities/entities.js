@@ -1,34 +1,26 @@
 game.PlayerEntity = me.Entity.extend
 ({
-    
-
-    
     /**
      * constructor
      */
     init:function (x, y, settings) 
     {
-            var myleft = this.x;
-            var myRight = this.x + (this.width);
-            var mytop = this.y;
-            var bottom = this.y + (this.height);
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
-        
-//---- max walking & jumping speed
-        this.body.setMaxVelocity(2, 12);
-        this.body.setFriction(0.6, 0);
 
 //---- set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
 
 //---- ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
-
+        
+        this.renderable.anchorPoint.set(0.1, 0);
 //---- define a basic walking animation (using 2 frames)
         this.renderable.addAnimation("walk",  [0, 1]);
 // --- Jumping Animation
         this.renderable.addAnimation("jump",  [0, 2]);
+// --- Ducking Animation
+        this.renderable.addAnimation("duck",  [3]);
 
 //---- define a standing animation (using the first frame)
         this.renderable.addAnimation("stand",  [0]);
@@ -45,13 +37,17 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-        this.body.setMaxVelocity(3, 15);
+
+        this.body.setMaxVelocity(2.3, 11);
+        this.body.setFriction(0.4, -0.2);
+
         }        
       else  {
-          this.body.setMaxVelocity(2, 12);
+          this.body.setMaxVelocity(2, 12.8);
+          this.body.setFriction(0.4, 0.2);
             }
           
-          if (me.input.isKeyPressed('left')) 
+          if (me.input.isKeyPressed('left') && !me.input.isKeyPressed('down')) 
             {
 
           // flip the sprite on horizontal axis
@@ -63,7 +59,7 @@ game.PlayerEntity = me.Entity.extend
                 {
               this.renderable.setCurrentAnimation("walk");
                 }
-            } else if (me.input.isKeyPressed('right')) 
+            } else if (me.input.isKeyPressed('right') && !me.input.isKeyPressed('down')) 
                     {
 
                       // unflip the sprite
@@ -82,7 +78,7 @@ game.PlayerEntity = me.Entity.extend
                       this.renderable.setCurrentAnimation("stand");
                     }     
 
-      if (me.input.isKeyPressed('jump')) 
+      if (me.input.isKeyPressed('jump') || me.input.isKeyPressed('up')) 
       {
           if (!this.body.jumping && !this.body.falling && !this.body.jumping == 1)
           {   
@@ -99,6 +95,73 @@ game.PlayerEntity = me.Entity.extend
           // --- Sets Jumping to 1, so Mario cant jump mid air
           this.body.jumping = 1;
       }
+        
+    
+    if(me.input.isKeyPressed('down'))
+    {
+        this.renderable.setCurrentAnimation("duck");
+        if (me.input.isKeyPressed('left'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(true);
+        }
+        else if (me.input.isKeyPressed('right'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(false);
+        }
+    }
+        
+    //if(me.input.isKeyPressed('down') && this.x == pipeEnterance1.x && (this.y == pipeEnterance1.y - 1))    
+        
+        
+        
+        
+    
+        var pause = false;
+        
+        
+        if(me.input.isKeyPressed('start'))
+        {
+            console.log("Enter");               //Test, Delete later
+            if(me.state.isCurrent(me.state.MENU))
+            {
+                console.log("Working");         //Test, Delete later
+                //Set this to TITLE when working
+                me.state.change(me.state.START);
+            }
+            else
+            {
+                console.log("Broken");          //Test, Delete later
+                if(pause)
+                {
+                    console.log("Unpause");     //Test, Delete later
+                    this.pause = (false);
+                    //me.state.resume();
+
+                }
+                else
+                {
+                    console.log("Pause");       //Test, Delete later
+                    this.pause = (true);
+                    //me.state.pause();
+                    
+                }
+                // Insert Pause Code Here
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
       // apply physics to the body (this moves the entity)
         this.body.update(dt);
@@ -147,7 +210,7 @@ game.PlayerEntity = me.Entity.extend
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
             {
-                this.pos.y = other.pos.y - 5 - this.height;
+                this.pos.y = other.pos.y - 5.8 - this.height;
                 // bounce (force jump)
                 this.body.falling = false;
                 this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
@@ -219,3 +282,4 @@ game.PlayerEntity = me.Entity.extend
  }); 
 
 */
+

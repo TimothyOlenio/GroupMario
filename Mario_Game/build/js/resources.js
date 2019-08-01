@@ -1,5 +1,10 @@
 game.resources = [
     {
+        "name": "OvMario",
+        "type": "image",    
+        "src": "data/img/OvMario.png"
+    },
+    {
         "name": "00001",
         "type": "image",
         "src": "data/img/00001.png"
@@ -9,10 +14,20 @@ game.resources = [
         "type": "image",
         "src": "data/img/RedKoopa_Walk.png"
     },
+        {
+        "name": "RedKoopa_Fly",
+        "type": "image",
+        "src": "data/img/RedKoopa_Fly.png"
+    },
     {
         "name": "Goomba_Walk",
         "type": "image",
         "src": "data/img/Goomba_Walk.png"
+    },
+        {
+        "name": "Goomba_Fly",
+        "type": "image",
+        "src": "data/img/Goomba_Fly.png"
     },
     {
         "name": "plant",
@@ -69,6 +84,16 @@ game.resources = [
         "type": "image",
         "src": "data/img/Leaf.png"
     },
+     {
+        "name": "Title",
+        "type": "image",
+        "src": "data/img/Title.png"
+    },
+    {
+        "name": "Mario_Title",
+        "type": "tmx",
+        "src": "data/map/Mario_Title.tmx"
+    },
     {
         "name": "Mario_1-1",
         "type": "tmx",
@@ -78,6 +103,11 @@ game.resources = [
         "name": "Mario_Overworld1",
         "type": "tmx",
         "src": "data/map/Mario_Overworld1.tmx"
+    },
+    {
+        "name": "TitleScreen",
+        "type": "tsx",
+        "src": "data/map/TitleScreen.tsx"
     },
     {
         "name": "00001",

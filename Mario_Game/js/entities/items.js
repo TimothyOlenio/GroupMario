@@ -42,7 +42,7 @@ game.MushroomEntity = me.CollectableEntity.extend(
         // call the parent constructor
         this._super(me.CollectableEntity, 'init', [x, y, settings]);
         // save the area size as defined in Tiled
-         var width = settings.width;
+        var width = settings.width;
         settings.image = "Mushroom";
         settings.frameWidth = settings.width = 16;
         settings.frameHeight = settings.height = 16;
@@ -121,3 +121,47 @@ game.LeafEntity = me.CollectableEntity.extend(
         return false
     }
 });
+
+//Warp Exit entity
+game.pipeExit = me.CollectableEntity.extend(
+{
+    // entending the init function is not manditoy
+    // unless you need to add some extra initialization
+    init: function (x, y, settings) 
+    {
+        // call the parent constructor
+        this._super(me.CollectableEntity, 'init', [x, y, settings]);
+    },       
+    //this function is called by the engine when an object is touched by something (here collected)
+    onCollision : function (response, other) 
+    {        
+        return false
+    }
+}); 
+
+
+//Warp Enterance entity
+game.pipeEnterance = me.CollectableEntity.extend(
+{
+    // entending the init function is not manditoy
+    // unless you need to add some extra initialization
+    init: function (x, y, settings) 
+    {
+        // call the parent constructor
+        this._super(me.CollectableEntity, 'init', [x, y, settings]);
+    },       
+    //this function is called by the engine when an object is touched by something (here collected)
+    onCollision : function (response, other) 
+    {
+        //do something when collected       
+        if(me.input.isKeyPressed('down'))
+        {
+            console.log("Down");
+            //insert warp to area here
+            game.PlayerEntity.x=(game.pipeExit.x)
+            game.PlayerEntity.y=(game.pipeExit.y)
+        }
+                
+        return false
+    }
+}); 
