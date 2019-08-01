@@ -168,5 +168,10 @@ game.resources = [
         "name": "World_1",
         "type": "tsx",
         "src": "data/map/World_1.tsx"
+    },
+    {
+        "name": "coinCling",
+        "type": "mp3",
+        "src": "data/sfx/coinCling.mp3"
     }
 ];

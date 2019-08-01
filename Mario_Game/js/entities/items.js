@@ -6,6 +6,9 @@ game.CoinEntity = me.CollectableEntity.extend(
         
     init: function (x, y, settings) 
         {
+        //me.audio.init("mp3");
+    
+            
         settings.image = "coin";
         settings.framewidth = settings.width = 18;
         settings.frameheight = settings.height = 18;
@@ -23,6 +26,12 @@ game.CoinEntity = me.CollectableEntity.extend(
         {
 //--- do something when collected
 //--- make sure it cannot be collected "again"
+      
+// play a "coin collected" sound
+            
+    //me.audio.play("coinCling");
+            
+            
     game.data.score += 250;
     this.body.setCollisionMask(me.collision.types.NO_OBJECT);
 
