@@ -1,4 +1,9 @@
 game.resources = [
+     {
+        "name": "coin",
+        "type": "image",    
+        "src": "data/img/coin.png"
+    },
     {
         "name": "OvMario",
         "type": "image",    

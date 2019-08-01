@@ -6,11 +6,14 @@ game.CoinEntity = me.CollectableEntity.extend(
         
     init: function (x, y, settings) 
         {
-      
+        settings.image = "coin";
+        settings.framewidth = settings.width = 16;
+        settings.frameheight = settings.height = 16;
 //--- call the parent constructor
             
     this._super(me.CollectableEntity, 'init', [x, y , settings]);
 
+        this.renderable.addAnimation("rotate"[0, 1, 2, 3, 2])
         },
 
 //--- this function is called by the engine, when
