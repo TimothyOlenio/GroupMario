@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="28" nextobjectid="232">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="28" nextobjectid="254">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -411,7 +411,29 @@
    </properties>
   </object>
   <object id="230" name="CoinEntity" x="96" y="352" width="16" height="16"/>
-  <object id="231" name="CoinEntity" x="1092" y="340" width="16" height="16"/>
+  <object id="231" name="CoinEntity" x="1088" y="336" width="16" height="16"/>
+  <object id="232" name="CoinEntity" x="1120" y="304" width="16" height="16"/>
+  <object id="233" name="CoinEntity" x="1152" y="272" width="16" height="16"/>
+  <object id="234" name="CoinEntity" x="1184" y="240" width="16" height="16"/>
+  <object id="235" name="CoinEntity" x="1216" y="208" width="16" height="16"/>
+  <object id="236" name="CoinEntity" x="1360" y="96" width="16" height="16"/>
+  <object id="237" name="CoinEntity" x="1344" y="96" width="16" height="16"/>
+  <object id="238" name="CoinEntity" x="1376" y="96" width="16" height="16"/>
+  <object id="239" name="CoinEntity" x="1488" y="128" width="16" height="16"/>
+  <object id="240" name="CoinEntity" x="1504" y="128" width="16" height="16"/>
+  <object id="241" name="CoinEntity" x="1552" y="144" width="16" height="16"/>
+  <object id="242" name="CoinEntity" x="1568" y="144" width="16" height="16"/>
+  <object id="243" name="CoinEntity" x="1584" y="144" width="16" height="16"/>
+  <object id="244" name="CoinEntity" x="1600" y="144" width="16" height="16"/>
+  <object id="245" name="CoinEntity" x="1632" y="128" width="16" height="16"/>
+  <object id="246" name="CoinEntity" x="1648" y="128" width="16" height="16"/>
+  <object id="247" name="CoinEntity" x="1664" y="128" width="16" height="16"/>
+  <object id="248" name="CoinEntity" x="1680" y="128" width="16" height="16"/>
+  <object id="249" name="CoinEntity" x="1712" y="160" width="16" height="16"/>
+  <object id="250" name="CoinEntity" x="1744" y="128" width="16" height="16"/>
+  <object id="251" name="CoinEntity" x="1776" y="144" width="16" height="16"/>
+  <object id="252" name="CoinEntity" x="1824" y="112" width="16" height="16"/>
+  <object id="253" name="CoinEntity" x="1856" y="144" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="20" name="Goombas">
   <object id="182" name="GoombaEntity" x="90" y="390" width="206" height="40"/>
