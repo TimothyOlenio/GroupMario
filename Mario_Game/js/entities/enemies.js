@@ -278,8 +278,8 @@
                 if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
                 {   
                     me.game.world.removeChild(this);
-                    me.pool.pull("GoombaEntity", this.x, this.y);
-                    me.game.world.addChild("GoombaEntity");
+                    me.pool.pull("GoombaEntity");
+                    
                 }   
             
                 // Fall through
@@ -703,7 +703,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
      {
 // save the area size as defined in Tiled
          var height = settings.height;
-
+         
 // define this here instead of tiled
 
          settings.image = "plant";
@@ -723,6 +723,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
 // configure max speed and friction
          this.body.setMaxVelocity(0.25, 1.5);
          this.body.setFriction(0.4, 0);
+         this.body.gravity.y = 0;
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
@@ -735,6 +736,8 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
 
 // to remember which side we were walking
          this.comeUp = false;
+         //this.help = false;
+         
 
 // make it "alive"
          this.alive = true;
@@ -755,8 +758,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
                  this.comeUp = true;
                  this.body.force.y = -this.body.maxVel.y;
              }
-
-             //this.flipX(this.comeUp);
+            
          }
          else
          {
