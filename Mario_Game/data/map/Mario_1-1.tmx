@@ -459,7 +459,7 @@
   <object id="233" name="pipeExit" type="pipeExit" x="16" y="320" width="32" height="16"/>
  </objectgroup>
  <objectgroup id="20" name="Goombas">
-  <object id="182" name="GoombaEntity" x="90" y="416" width="206" height="16"/>
+  <object id="182" name="GoombaEntity" x="96" y="416" width="144" height="16"/>
   <object id="184" name="GoombaEntity" x="416" y="416" width="208" height="16"/>
   <object id="186" name="GoombaEntity" x="688" y="400" width="316" height="16"/>
   <object id="190" name="GoombaEntity" x="688" y="400" width="352" height="16"/>
