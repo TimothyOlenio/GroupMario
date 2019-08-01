@@ -113,7 +113,7 @@
 
                 case me.collision.types.ENEMY_OBJECT:
                     
-                if ((response.overlapV.y>0) && !this.body.jumping) 
+                if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
                 {
                     this.onDeath();
                 }
@@ -275,15 +275,11 @@
                     break;
 
             case me.collision.types.ENEMY_OBJECT:
-                if ((response.overlapV.y>0) && !this.body.jumping) 
+                if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
             {
                 this.onDeath();
             }
-            else 
-            {
-                
-            }
-
+            
                 // Fall through
 
             default:
@@ -368,7 +364,7 @@ game.KoopaEntity = me.Sprite.extend(
          }
          else
          {
-             this.body.force.x = 0;
+             
          }
 // check & update movement
          this.body.update(dt);
@@ -401,15 +397,16 @@ game.KoopaEntity = me.Sprite.extend(
                 }
              break;
                 
-            case me.collision.types.PLAYER_OBJECT:
-                if ((response.overlapV.y>0) && !this.body.jumping) 
-            {
-                this.onDeath();
-            }
-            else 
-            {
+            case me.collision.types.ENEMY_OBJECT:
+                    
+                if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
+                {
+                    this.onDeath();
+                }
+                else 
+                {
                 
-            }
+                }
 
                 // Fall through
 
@@ -460,7 +457,7 @@ game.KoopaEntity = me.Sprite.extend(
          this.body.setMaxVelocity(1.5, 6);
          this.body.setFriction(0, 0);
          this.body.force.set(2, 10);
-         this.speed = this.speed / 2;
+         
 // enable physic collision (off by default for basic me.Renderable)
          this.isKinematic = false;
 
@@ -560,11 +557,16 @@ game.KoopaEntity = me.Sprite.extend(
                 }
                     break;
 
-            case me.collision.types.PLAYER_OBJECT:
-            if ((response.overlapV.y>0) && !this.body.jumping) 
-            {
-                this.onDeath();
-            }
+            case me.collision.types.ENEMY_OBJECT:
+                    
+                if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
+                {
+                    this.onDeath();
+                }
+                else 
+                {
+                
+                }
 
 
                 // Fall through

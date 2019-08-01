@@ -459,11 +459,11 @@
  </objectgroup>
  <objectgroup id="29" name="WingKoops">
   <object id="225" name="WingKoopaEntity" x="1168" y="408" width="336" height="16"/>
-  <object id="228" name="WingKoopaEntity" x="1344" y="320" width="112" height="16"/>
-  <object id="230" name="WingKoopaEntity" x="1312" y="352" width="112" height="16"/>
+  <object id="228" name="WingKoopaEntity" x="1168" y="320" width="288" height="16"/>
+  <object id="230" name="WingKoopaEntity" x="1168" y="352" width="256" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="Mario">
-  <object id="125" name="mainPlayer" x="78" y="416.8">
+  <object id="125" name="mainPlayer" type="Player" x="78" y="416.8">
    <properties>
     <property name="image" value="mario_walk_right"/>
    </properties>
