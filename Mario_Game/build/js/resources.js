@@ -89,10 +89,15 @@ game.resources = [
         "type": "image",
         "src": "data/img/Leaf.png"
     },
-     {
+    {
         "name": "Title",
         "type": "image",
         "src": "data/img/Title.png"
+    },
+    {
+        "name": "PressEnter",
+        "type": "image",
+        "src": "data/img/PressEnter.png"
     },
     {
         "name": "Mario_Title",
@@ -108,6 +113,11 @@ game.resources = [
         "name": "Mario_Overworld1",
         "type": "tmx",
         "src": "data/map/Mario_Overworld1.tmx"
+    },
+    {
+        "name": "PressEnter",
+        "type": "tsx",
+        "src": "data/map/PressEnter.tsx"
     },
     {
         "name": "TitleScreen",

@@ -278,8 +278,8 @@
                 if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
                 {   
                     me.game.world.removeChild(this);
-                    me.pool.pull("GoombaEntity", this.x, this.y);
-                    me.game.world.addChild("GoombaEntity");
+                    me.pool.pull("GoombaEntity");
+                    
                 }   
             
                 // Fall through
@@ -726,6 +726,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
          this.counter = 0;
          this.pauseDur = settings.pauseDur;
 
+
 // define this here instead of tiled
 
          settings.image = "plant";
@@ -759,6 +760,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
 // to remember which side we were walking
          this.comeUp = true;
 
+
 // make it "alive"
          this.alive = true;
      },
@@ -773,6 +775,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
             console.log(this.counter);
             this.comeUp = !this.comeUp;
             this.counter = 0;
+
          }
          
          if (this.comeUp && this.pos.y <= this.startY)
