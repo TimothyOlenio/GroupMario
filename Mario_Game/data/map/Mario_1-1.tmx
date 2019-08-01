@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="26" nextobjectid="227">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="26" nextobjectid="228">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -104,7 +104,7 @@
 </data>
  </layer>
  <objectgroup id="25" name="Piranhas">
-  <object id="211" name="RedFirePiranhaEntity" x="368" y="352" width="32" height="64"/>
+  <object id="211" name="RedFirePiranhaEntity" x="368" y="352" width="32" height="128"/>
   <object id="212" name="GreenFirePiranhaEntity" x="1872" y="352" width="32" height="128"/>
   <object id="213" name="PiranhaEntity" x="1808" y="368" width="32" height="112"/>
  </objectgroup>
@@ -374,7 +374,7 @@
   <object id="81" type="platform" x="1312.18" y="368.182" width="110.909" height="4.54545"/>
   <object id="83" type="platform" x="2160.18" y="384.182" width="47.2727" height="4"/>
   <object id="203" type="platform" x="1328" y="160" width="64" height="4"/>
-  <object id="119" type="floor" x="15" y="432" width="625" height="16"/>
+  <object id="119" type="floor" x="400" y="432" width="240" height="16"/>
   <object id="120" x="641" y="417" width="460" height="31"/>
   <object id="121" x="1169" y="433" width="350" height="16"/>
   <object id="122" x="1553" y="433" width="78" height="15"/>
@@ -392,6 +392,7 @@
   <object id="224" x="1680" y="432" width="128" height="15"/>
   <object id="225" x="1840" y="432" width="32" height="15"/>
   <object id="226" x="1904" y="432" width="352" height="15"/>
+  <object id="227" type="floor" x="16" y="432" width="352" height="16"/>
  </objectgroup>
  <objectgroup id="19" name="Items">
   <object id="193" name="CoinEntity" gid="9080" x="1088" y="352" width="16" height="16"/>
