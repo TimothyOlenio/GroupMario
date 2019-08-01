@@ -9,7 +9,7 @@ game.PlayerEntity = me.Entity.extend
         this._super(me.Entity, 'init', [x, y , settings]);
 
 //---- set the display to follow our position on both axis
-        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
+        me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 2.4);
 
 //---- ensure the player is updated even when outside of the viewport
         this.alwaysUpdate = true;
@@ -37,13 +37,13 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-        this.body.setMaxVelocity(2.3, 11);
-        this.body.setFriction(0.4, -0.2);
+        this.body.setMaxVelocity(3, 13.3);
+        this.body.setFriction(0.2, 0.2);
         }        
       else  {
 
           this.body.setMaxVelocity(2, 12.8);
-          this.body.setFriction(0.4, 0.2);
+          this.body.setFriction(0.2, 0.2);
             }
           
           if (me.input.isKeyPressed('left') && !me.input.isKeyPressed('down')) 
@@ -181,6 +181,22 @@ game.PlayerEntity = me.Entity.extend
         
             switch (response.b.body.collisionType) 
             {
+                case me.collision.types.Warp:
+                if (other.type === "pipeEnterance")
+                {
+                    //do something when collected       
+                    if(me.input.isKeyPressed('down'))
+                    {
+                        console.log("Down");
+                        //insert warp to area here
+                        this.pos.x = 2300;
+                        this.pos.y = 570;
+                    }
+                }
+                    break;
+                    
+                    
+                    
                 case me.collision.types.WORLD_SHAPE:
                 // Simulate a platform object
                 if (other.type === "platform") 
@@ -205,6 +221,13 @@ game.PlayerEntity = me.Entity.extend
                     return false;
                 }
                     break;
+                    
+                    
+                    
+                
+                    
+                    
+                    
 //maybe stuff for wing goomba
             case me.collision.types.ENEMY_OBJECT:
                 if ((response.overlapV.y>0) && !this.body.jumping) 
