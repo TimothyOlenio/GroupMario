@@ -5,7 +5,7 @@ var game = {
     // an object where to store game information
     data : {
         // score
-        score : 0
+        score : 9
     },
 
 
@@ -15,7 +15,7 @@ var game = {
             me.sys.pauseOnBlur = false;
             me.sys.stopOnBlur = false;
         // Initialize the video.
-        if (!me.video.init(480, 360, {wrapper : "screen", scale : "auto"})) {
+        if (!me.video.init(360, 240, {wrapper : "screen", scale : "auto"})) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -44,27 +44,31 @@ var game = {
         me.pool.register("1UpEntity", game.OneUpEntity);
         me.pool.register("LeafEntity", game.LeafEntity);
         me.pool.register("KoopaEntity", game.KoopaEntity);
+        me.pool.register("WingGoombaEntity", game.WingGoombaEntity);
+        me.pool.register("WingKoopaEntity", game.WingKoopaEntity);
         
         me.pool.register("PiranhaEntity", game.PiranhaEntity);
         me.pool.register("RedFirePiranhaEntity", game.RedFirePiranhaEntity);
         me.pool.register("GreenFirePiranhaEntity", game.GreenFirePiranhaEntity);
+        me.pool.register("pipeEnterance", game.pipeEnterance);
+        me.pool.register("pipeExit", game.pipeExit);
         me.pool.register("LilMario", game.LilMario);
 
         
 // -- Enable Keyboard 
         
-        me.input.bindKey(me.input.KEY.LEFT,  "left");
-        me.input.bindKey(me.input.KEY.RIGHT, "right");
-        me.input.bindKey(me.input.KEY.X, "jump", true);
+        me.input.bindKey(me.input.KEY.LEET,  "left");
+        me.input.bindKey(me.input.KEY.right, "right");
+        me.input.bindKey(me.input.KEY.x, "jump", true);
         me.input.bindKey(me.input.KEY.UP, "up");
-        me.input.bindKey(me.input.KEY.SPACE, "jump", true);
+        me.input.bindKey(me.input.KEY.JUMP, "jumP", true);
         me.input.bindKey(me.input.KEY.Z, "run");
         me.input.bindKey(me.input.KEY.ENTER, "start");
-        me.input.bindKey(me.input.KEY.DOWN, "down");
+        me.input.bindKey(me.input.KEY.BROWN, "down");
 
 // -- Start the game.
         
-        me.state.change(me.state.PLAY); 
+        me.state.change(me.state.play); 
         //me.state.change(me.state.MENU);         //Once Fixed
 
     }

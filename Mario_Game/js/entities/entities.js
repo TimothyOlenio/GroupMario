@@ -19,6 +19,8 @@ game.PlayerEntity = me.Entity.extend
         this.renderable.addAnimation("walk",  [0, 1]);
 // --- Jumping Animation
         this.renderable.addAnimation("jump",  [0, 2]);
+// --- Ducking Animation
+        this.renderable.addAnimation("duck",  [3]);
 
 //---- define a standing animation (using the first frame)
         this.renderable.addAnimation("stand",  [0]);
@@ -35,18 +37,16 @@ game.PlayerEntity = me.Entity.extend
         
     if(me.input.isKeyPressed('run')) 
         {
-
-        this.body.setMaxVelocity(2.5, 13.8);
-
+        this.body.setMaxVelocity(2.3, 11);
         this.body.setFriction(0.4, -0.2);
-
         }        
       else  {
-          this.body.setMaxVelocity(2.3, 12.4);
-          this.body.setFriction(0.4, 0.3);
+
+          this.body.setMaxVelocity(2, 12.8);
+          this.body.setFriction(0.4, 0.2);
             }
           
-          if (me.input.isKeyPressed('left')) 
+          if (me.input.isKeyPressed('left') && !me.input.isKeyPressed('down')) 
             {
 
           // flip the sprite on horizontal axis
@@ -58,7 +58,7 @@ game.PlayerEntity = me.Entity.extend
                 {
               this.renderable.setCurrentAnimation("walk");
                 }
-            } else if (me.input.isKeyPressed('right')) 
+            } else if (me.input.isKeyPressed('right') && !me.input.isKeyPressed('down')) 
                     {
 
                       // unflip the sprite
@@ -77,7 +77,7 @@ game.PlayerEntity = me.Entity.extend
                       this.renderable.setCurrentAnimation("stand");
                     }     
 
-      if (me.input.isKeyPressed('jump')) 
+      if (me.input.isKeyPressed('jump') || me.input.isKeyPressed('up')) 
       {
           if (!this.body.jumping && !this.body.falling && !this.body.jumping == 1)
           {   
@@ -94,6 +94,26 @@ game.PlayerEntity = me.Entity.extend
           // --- Sets Jumping to 1, so Mario cant jump mid air
           this.body.jumping = 1;
       }
+        
+    
+    if(me.input.isKeyPressed('down'))
+    {
+        this.renderable.setCurrentAnimation("duck");
+        if (me.input.isKeyPressed('left'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(true);
+        }
+        else if (me.input.isKeyPressed('right'))
+        {
+            // flip the sprite on horizontal axis
+            this.renderable.flipX(false);
+        }
+    }
+        
+    //if(me.input.isKeyPressed('down') && this.x == pipeEnterance1.x && (this.y == pipeEnterance1.y - 1))    
+        
+        
         
         
     
@@ -114,15 +134,17 @@ game.PlayerEntity = me.Entity.extend
                 console.log("Broken");          //Test, Delete later
                 if(pause)
                 {
-                    console.log("Unpause");
-                    pause = false;
+                    console.log("Unpause");     //Test, Delete later
+                    this.pause = (false);
+                    //me.state.resume();
 
                 }
                 else
                 {
-                    console.log("Pause");
-                    pause = true;
-;
+                    console.log("Pause");       //Test, Delete later
+                    this.pause = (true);
+                    //me.state.pause();
+                    
                 }
                 // Insert Pause Code Here
             }
@@ -224,4 +246,39 @@ game.PlayerEntity = me.Entity.extend
 });
 
 
+
+/**
+ * Overworld Mario Entity
+ *
+
+ game.LilMario = me.Sprite.extend({
+     // constructor
+     init:function (x, y, settings) {
+         // call the parent constructor
+         this._super(me.Sprite, 'init', [x, y , settings]);
+
+         // define a basic walking animation
+         this.addAnimation("walk",  [...]);
+         // define a standing animation (using the first frame)
+         this.addAnimation("stand",  [...]);
+         // set the standing animation as default
+         this.setCurrentAnimation("stand");
+
+         // add a physic body
+         this.body = new me.Body(this);
+         // add a default collision shape
+         this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+         // configure max speed and friction
+         this.body.setMaxVelocity(3, 15);
+         this.body.setFriction(0.4, 0);
+
+         // enable physic collision (off by default for basic me.Renderable)
+         this.isKinematic = false;
+
+         // set the display to follow our position on both axis
+         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+     },
+ }); 
+
+*/
 
