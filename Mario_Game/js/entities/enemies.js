@@ -320,15 +320,17 @@ game.KoopaEntity = me.Sprite.extend(
         {
             if (this.walkLeft && this.pos.x <= this.startX)
             {
+                this.flipX(this.walkLeft);
                 this.walkLeft = false;
                 this.body.force.x = this.body.maxVel.x; 
             }
             else if (!this.walkLeft && this.pos.x >= this.endX)
             {
+                this.flipX(this.walkLeft);
                 this.walkLeft = true;
                 this.body.force.x = -this.body.maxVel.x;     
             }
-            this.flipX(this.walkLeft);
+            
         }
         // check & update movement
         this.body.update(dt);
@@ -434,11 +436,13 @@ game.WingKoopaEntity = me.Sprite.extend(
         {
             if (this.walkLeft && this.pos.x <= this.startX)
             {
+                this.flipX(this.walkLeft);
                 this.walkLeft = false;
                 this.body.force.x = this.body.maxVel.x;
             }
             else if (!this.walkLeft && this.pos.x >= this.endX)
             {
+                this.flipX(this.walkLeft);
                 this.walkLeft = true;
                 this.body.force.x = -this.body.maxVel.x;
             } 
@@ -454,7 +458,6 @@ game.WingKoopaEntity = me.Sprite.extend(
             {
                 this.body.force.y = 0;
             }
-            this.flipX(this.walkLeft);
         }
         else
         {
