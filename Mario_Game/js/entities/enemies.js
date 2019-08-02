@@ -539,7 +539,7 @@ game.PiranhaEntity = me.Sprite.extend(
         // adjust the size setting information to match the sprite size
         // so that the entity object is created with the right size
         settings.framewidth = settings.width = 16;
-        settings.frameheight = settings.height = 16;
+        settings.frameheight = settings.height = 32;
         // call the parent constructor
         this._super(me.Sprite, 'init', [x, y , settings]);
         // add a physic body
@@ -648,7 +648,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
         // adjust the size setting information to match the sprite size
         // so that the entity object is created with the right size
         settings.framewidth = settings.width = 16;
-        settings.frameheight = settings.height = 16;
+        settings.frameheight = settings.height = 32;
 
         // call the parent constructor
         this._super(me.Sprite, 'init', [x, y , settings]);
@@ -762,7 +762,7 @@ game.GreenFirePiranhaEntity = me.Sprite.extend(
         // adjust the size setting information to match the sprite size
         // so that the entity object is created with the right size
         settings.framewidth = settings.width = 16;
-        settings.frameheight = settings.height = 16;
+        settings.frameheight = settings.height = 32;
 
         // call the parent constructor
         this._super(me.Sprite, 'init', [x, y , settings]);
