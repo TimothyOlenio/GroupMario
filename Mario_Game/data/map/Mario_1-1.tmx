@@ -104,7 +104,7 @@
 </data>
  </layer>
  <objectgroup id="26" name="DeathBox">
-  <object id="229" type="DeathBox" x="0" y="450" width="2887" height="3"/>
+  <object id="229" type="DeathBox" x="0" y="480" width="2887" height="3"/>
  </objectgroup>
  <objectgroup id="25" name="Piranhas">
   <object id="211" name="RedFirePiranhaEntity" x="376" y="352" width="24" height="80">
@@ -479,11 +479,11 @@
   <object id="230" name="WingKoopaEntity" x="1168" y="352" width="256" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="Mario">
-  <object id="125" name="mainPlayer" type="Player" x="78" y="416.8">
+  <object id="125" name="mainPlayer" type="Player" x="80" y="416.8">
    <properties>
     <property name="image" value="mario_walk_right"/>
    </properties>
-   <polygon points="-12,-3.8 -12,15.2 0,15.2 0,-3.8"/>
+   <polygon points="-16,-3.8 -16,15.2 0,15.2 0,-3.8"/>
   </object>
  </objectgroup>
 </map>

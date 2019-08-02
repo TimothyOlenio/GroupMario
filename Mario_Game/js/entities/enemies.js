@@ -98,6 +98,12 @@ game.GoombaEntity = me.Sprite.extend(
             case me.collision.types.ENEMY_OBJECT:
             if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
             {
+                other.pos.y = this.pos.y - 5.8 - other.height;
+                // bounce (force jump)
+                other.body.falling = false;
+                other.body.vel.y = -other.body.maxVel.y * me.timer.tick;
+                // set the jumping flag
+                other.body.jumping = true;
                 this.onDeath();
             }
             // Fall through
@@ -239,10 +245,15 @@ game.WingGoombaEntity = me.Sprite.extend(
             break;
 
             case me.collision.types.ENEMY_OBJECT:
-            if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
-            {   
-                me.game.world.removeChild(this);
-                me.pool.pull("GoombaEntity");
+            if ((response.overlapV.y>2) && !this.body.jumping && other.type === "Player") 
+            {  
+               other.pos.y = this.pos.y - 5.8 - other.height;
+               // bounce (force jump)
+               other.body.falling = false;
+               other.body.vel.y = -other.body.maxVel.y * me.timer.tick;
+               // set the jumping flag
+               other.body.jumping = true;
+               this.onDeath();
             }       
             // Fall through
             default:
@@ -345,6 +356,12 @@ game.KoopaEntity = me.Sprite.extend(
             case me.collision.types.ENEMY_OBJECT:
             if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
             {
+                other.pos.y = this.pos.y - 5.8 - other.height;
+                // bounce (force jump)
+                other.body.falling = false;
+                other.body.vel.y = -other.body.maxVel.y * me.timer.tick;
+                // set the jumping flag
+                other.body.jumping = true;
                 this.onDeath();
             }
 
@@ -481,6 +498,12 @@ game.WingKoopaEntity = me.Sprite.extend(
             case me.collision.types.ENEMY_OBJECT:        
             if ((response.overlapV.y>0) && !this.body.jumping && other.type === "Player") 
             {
+                other.pos.y = this.pos.y - 5.8 - other.height;
+                // bounce (force jump)
+                other.body.falling = false;
+                other.body.vel.y = -other.body.maxVel.y * me.timer.tick;
+                // set the jumping flag
+                other.body.jumping = true;
                 this.onDeath();
             }
                 
@@ -601,7 +624,7 @@ game.PiranhaEntity = me.Sprite.extend(
             // which mean at top position for this one
             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) 
             {
-                this.renderable.flicker(750);
+            
             }
             return false;
          }
@@ -715,7 +738,7 @@ game.RedFirePiranhaEntity = me.Sprite.extend(
             // which mean at top position for this one
             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) 
             {
-                this.renderable.flicker(750);
+             
             }
             return false;
         }
@@ -829,7 +852,7 @@ game.GreenFirePiranhaEntity = me.Sprite.extend(
             // which mean at top position for this one
             if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) 
             {
-                this.renderable.flicker(750);
+             
             }
             return false;
         }
