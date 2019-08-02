@@ -107,17 +107,17 @@
   <object id="229" type="DeathBox" x="0" y="450" width="2887" height="3"/>
  </objectgroup>
  <objectgroup id="25" name="Piranhas">
-  <object id="211" name="RedFirePiranhaEntity" x="376" y="352" width="24" height="80">
+  <object id="211" name="RedFirePiranhaEntity" type="plants" x="376" y="352" width="24" height="80">
    <properties>
     <property name="pauseDur" type="int" value="3000"/>
    </properties>
   </object>
-  <object id="212" name="GreenFirePiranhaEntity" x="1880" y="352" width="24" height="80">
+  <object id="212" name="GreenFirePiranhaEntity" type="plants" x="1880" y="352" width="24" height="80">
    <properties>
     <property name="pauseDur" type="int" value="2500"/>
    </properties>
   </object>
-  <object id="213" name="PiranhaEntity" x="1816" y="368" width="24" height="64">
+  <object id="213" name="PiranhaEntity" type="plants" x="1816" y="368" width="24" height="64">
    <properties>
     <property name="pauseDur" type="int" value="2000"/>
    </properties>
