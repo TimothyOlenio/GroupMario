@@ -1,13 +1,9 @@
-/**
- * a HUD container and child items
- */
-
+//a HUD container and child items
 game.HUD = game.HUD || {};
-
-
-game.HUD.Container = me.Container.extend({
-
-    init: function() {
+game.HUD.Container = me.Container.extend(
+{
+    init: function() 
+    {
         // call the constructor
         this._super(me.Container, 'init');
 
@@ -25,42 +21,35 @@ game.HUD.Container = me.Container.extend({
     }
 });
 
-
-/**
- * a basic HUD item to display score
- */
-game.HUD.ScoreItem = me.Renderable.extend({
-    /**
-     * constructor
-     */
-    init: function(x, y) {
-
+//a basic HUD item to display score
+game.HUD.ScoreItem = me.Renderable.extend(
+{
+    //constructor
+    init: function(x, y) 
+    {
         // call the parent constructor
         // (size does not matter here)
         this._super(me.Renderable, 'init', [x, y, 10, 10]);
-
         // local copy of the global score
         this.score = -1;
     },
 
-    /**
-     * update function
-     */
-    update : function () {
+    //update function
+    update : function () 
+    {
         // we don't do anything fancy here, so just
         // return true if the score has been updated
-        if (this.score !== game.data.score) {
+        if (this.score !== game.data.score) 
+        {
             this.score = game.data.score;
             return true;
         }
         return false;
     },
 
-    /**
-     * draw the score
-     */
-    draw : function (context) {
-        // draw it baby !
+    //draw the score
+    draw : function (context) 
+    {
+        // draw area        (NOT IMPLEMENTED YET)
     }
-
 });

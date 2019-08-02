@@ -42,16 +42,10 @@ game.PressEnter = me.Warp.extend(
     {
         // call the parent constructor
         this._super(me.CollectableEntity, 'init', [x, y, settings]);
-    },
-    
-    
-    
+    },    
     //Needs Fixed
-    
-    
     if(me.input.isKeyPressed('enter'))
     {
         me.levelDirector.loadLevel("Mario_1-1");
     };
-    
 }); 

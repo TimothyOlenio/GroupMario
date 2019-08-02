@@ -1,21 +1,25 @@
 
 /* Game namespace */
-var game = {
+var game = 
+{
 
     // an object where to store game information
-    data : {
+    data : 
+    {
         // score
         score : 0
     },
 
 
     // Run on page load.
-    "onload" : function () {
-            me.debug.renderHitBox = true;
-            me.sys.pauseOnBlur = false;
-            me.sys.stopOnBlur = false;
+    "onload" : function () 
+    {
+        me.debug.renderHitBox = true;
+        me.sys.pauseOnBlur = false;
+        me.sys.stopOnBlur = false;
         // Initialize the video.
-        if (!me.video.init(240, 180, {wrapper : "screen", scale : "auto"})) {
+        if (!me.video.init(240, 180, {wrapper : "screen", scale : "auto"})) 
+        {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
@@ -28,16 +32,14 @@ var game = {
         me.loader.preload(game.resources, this.loaded.bind(this));
     },
 
-// -- Run on game resources loaded.
-    
-    "loaded" : function () {
+    // -- Run on game resources loaded.
+    "loaded" : function () 
+    {
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
         me.state.set(me.state.START, new game.StartScreen());
 
-// -- add our player entity in the entity pooc
-        
-
+        // -- add our player entity in the entity pooc
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("GoombaEntity", game.GoombaEntity);
         me.pool.register("CoinEntity", game.CoinEntity);
@@ -48,18 +50,15 @@ var game = {
         me.pool.register("WingGoombaEntity", game.WingGoombaEntity);
         me.pool.register("WingKoopaEntity", game.WingKoopaEntity);
         me.pool.register("goomba", game.GoombaEntity, true);
-        
         me.pool.register("PiranhaEntity", game.PiranhaEntity);
         me.pool.register("RedFirePiranhaEntity", game.RedFirePiranhaEntity);
         me.pool.register("GreenFirePiranhaEntity", game.GreenFirePiranhaEntity);
         me.pool.register("pipeEnterance", game.pipeEnterance);
         me.pool.register("pipeExit", game.pipeExit);
         me.pool.register("LilMario", game.LilMario);
-        //me.pool.register("PressEnter", game.PressEnter);
+        //me.pool.register("PressEnter", game.PressEnter);      (NOT IMPLEMENTED YET)
 
-        
-// -- Enable Keyboard 
-        
+        // -- Enable Keyboard 
         me.input.bindKey(me.input.KEY.LEFT,  "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.X, "jump", true);
@@ -69,10 +68,8 @@ var game = {
         me.input.bindKey(me.input.KEY.ENTER, "start");
         me.input.bindKey(me.input.KEY.DOWN, "down");
 
-// -- Start the game.
-        
+        // -- Start the game.
         me.state.change(me.state.PLAY); 
-        //me.state.change(me.state.MENU);         //Once Fixed
-
+        //me.state.change(me.state.MENU);         (NOT IMPLEMENTED YET)
     }
 };
