@@ -834,7 +834,7 @@ game.GreenFirePiranhaEntity = me.Sprite.extend(
 
     /* colision handler
     (called when colliding with other objects) */
-    onCollision : function (response, othr) 
+    onCollision : function (response, other) 
     {
         switch (response.b.body.collisionType) 
         {
