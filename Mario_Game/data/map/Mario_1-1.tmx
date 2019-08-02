@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="236">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="244">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -112,12 +112,12 @@
     <property name="pauseDur" type="int" value="3000"/>
    </properties>
   </object>
-  <object id="212" name="RedFirePiranhaEntity" type="plants" x="1880" y="354" width="24" height="78">
+  <object id="212" name="GreenFirePiranhaEntity" type="plants" x="1880" y="352" width="24" height="80">
    <properties>
     <property name="pauseDur" type="int" value="2500"/>
    </properties>
   </object>
-  <object id="213" name="PiranhaEntity" type="plants" x="1816" y="370" width="24" height="62">
+  <object id="213" name="PiranhaEntity" type="plants" x="1816" y="368" width="24" height="64">
    <properties>
     <property name="pauseDur" type="int" value="2000"/>
    </properties>
@@ -364,6 +364,13 @@
   <object id="233" x="1712" y="400" width="16" height="16" rotation="90"/>
   <object id="234" x="1696" y="400" width="16" height="16" rotation="90"/>
   <object id="235" x="1696" y="384" width="16" height="16" rotation="90"/>
+  <object id="237" type="questionBlock" x="192" y="368" width="16" height="16"/>
+  <object id="238" type="questionBlock" x="208" y="368" width="16" height="16"/>
+  <object id="239" type="questionBlock" x="240" y="320" width="16" height="16"/>
+  <object id="240" type="questionBlock" x="256" y="320" width="16" height="16"/>
+  <object id="241" type="questionBlock" x="432" y="336" width="16" height="16"/>
+  <object id="242" type="questionBlock" x="672" y="400" width="16" height="16"/>
+  <object id="243" type="questionBlock" x="720" y="368" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="25" name="Piranhas"/>
  <objectgroup id="14" name="Collision Pipes">
