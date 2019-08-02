@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="230">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="178" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="27" nextobjectid="236">
  <tileset firstgid="1" source="Level1.tsx"/>
  <tileset firstgid="8011" source="tilesSMAS.tsx"/>
  <tileset firstgid="8852" source="mario3Tiles.tsx"/>
@@ -342,20 +342,15 @@
   <object id="173" x="2048" y="368" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="18" name="Collision Blocks">
-  <object id="139" x="192" y="368" width="16" height="16"/>
-  <object id="141" x="208" y="368" width="16" height="16"/>
-  <object id="142" x="240" y="320" width="16" height="16"/>
-  <object id="143" x="256" y="320" width="16" height="16"/>
+  <object id="139" x="192" y="368" width="32" height="16"/>
+  <object id="142" x="240" y="320" width="32" height="16"/>
   <object id="144" x="432" y="336" width="16" height="16"/>
   <object id="145" x="672" y="400" width="16" height="16"/>
   <object id="146" x="720" y="368" width="16" height="16"/>
   <object id="147" x="1488" y="384" width="16" height="16"/>
   <object id="148" x="1520" y="352" width="32" height="16"/>
-  <object id="149" x="2273" y="320" width="30" height="16"/>
+  <object id="149" x="2273" y="320" width="31" height="16"/>
   <object id="150" x="2272" y="384" width="32" height="16"/>
-  <object id="151" x="1695.55" y="384.364">
-   <polygon points="0.454545,-0.363636 -15.5455,-0.363636 -15.5455,47.6364 32.4545,47.6364 32.4545,31.6364 16.4545,31.6364 16.4545,15.6364 0.454545,15.6364"/>
-  </object>
   <object id="174" x="1584" y="416" width="16" height="16"/>
   <object id="177" x="1600" y="416" width="16" height="16"/>
   <object id="178" x="1616" y="416" width="16" height="16"/>
@@ -363,13 +358,19 @@
   <object id="180" x="1616" y="400" width="16" height="16"/>
   <object id="181" x="1616" y="384" width="16" height="16"/>
   <object id="204" x="1456" y="144" width="16" height="16"/>
+  <object id="230" x="1728" y="416" width="16" height="16" rotation="90"/>
+  <object id="231" x="1712" y="416" width="16" height="16" rotation="90"/>
+  <object id="232" x="1696" y="416" width="16" height="16" rotation="90"/>
+  <object id="233" x="1712" y="400" width="16" height="16" rotation="90"/>
+  <object id="234" x="1696" y="400" width="16" height="16" rotation="90"/>
+  <object id="235" x="1696" y="384" width="16" height="16" rotation="90"/>
  </objectgroup>
  <objectgroup id="25" name="Piranhas"/>
  <objectgroup id="14" name="Collision Pipes">
   <object id="85" type="pipes" x="368.182" y="384.182" width="31.6364" height="48.3636"/>
   <object id="86" type="pipes" x="1808.18" y="399.818" width="31.6364" height="32.3636"/>
   <object id="87" type="pipes" x="1872" y="384" width="31.6364" height="47.8182"/>
-  <object id="88" x="2272.36" y="399.636" width="30.7273" height="32.9091"/>
+  <object id="88" x="2272.36" y="399.636" width="31.64" height="32.9091"/>
   <object id="89" x="2272.36" y="127.818" width="31.2727" height="192.364"/>
   <object id="90" x="2336" y="400" width="31.8182" height="32.1818"/>
   <object id="94" x="2271.82" y="511.818" width="32" height="31.6364"/>
@@ -390,13 +391,13 @@
   <object id="81" type="platform" x="1312.18" y="368.182" width="110.909" height="8"/>
   <object id="83" type="platform" x="2160.18" y="384.182" width="47.2727" height="8"/>
   <object id="203" type="platform" x="1328" y="160" width="64" height="8"/>
-  <object id="119" x="15" y="432" width="625" height="16"/>
-  <object id="120" x="641" y="417" width="460" height="31"/>
+  <object id="119" x="15" y="432" width="650" height="16"/>
+  <object id="120" x="641" y="417" width="463" height="31"/>
   <object id="121" x="1169" y="433" width="350" height="16"/>
   <object id="122" x="1553" y="433" width="78" height="15"/>
   <object id="123" x="1680" y="432" width="575" height="15"/>
   <object id="124" x="2273" y="432" width="575" height="16"/>
-  <object id="126" x="11" y="7" width="6" height="392"/>
+  <object id="126" x="11" y="7" width="6" height="441"/>
   <object id="170" name="me.LevelEntity" x="2704" y="352" width="14" height="14">
    <properties>
     <property name="duration" value="300"/>

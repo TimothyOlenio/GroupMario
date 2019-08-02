@@ -37,58 +37,41 @@
      },
         update : function (dt) 
     {
-        
-                  
-            if (me.input.isKeyPressed('left')) 
-            {
+        if (me.input.isKeyPressed('left')) 
+        {
               // update the default force
-              this.body.force.x = -this.body.maxVel.x;
+            this.body.force.x = -this.body.maxVel.x;
 
-            } 
-                else if (me.input.isKeyPressed('right')) 
-            {
-
-              // update the entity velocity
-               this.body.force.x = this.body.maxVel.x;
-                                   
-            } 
-                else 
-            {
-                      this.body.force.x = 0;
-                      // change to the standing animation
-            }  
+        } 
+        else if (me.input.isKeyPressed('right')) 
+        {
+            // update the entity velocity
+            this.body.force.x = this.body.maxVel.x;                
+        } 
+        else 
+        {
+            this.body.force.x = 0;
+        }  
         
-          if (me.input.isKeyPressed('down')) 
-            {
+        if (me.input.isKeyPressed('down')) 
+        {
           // update the default force
-          this.body.force.y = this.body.maxVel.y;
-          // change to the walking animation
-
-            }
+            this.body.force.y = this.body.maxVel.y;
+        }
         
         if (me.input.isKeyPressed('up')) 
-            {
+        {
                 
                       // update the entity velocity
-                this.body.force.y = -this.body.maxVel.y;
-                      // change to the walking animation
-                       
-            } 
-                else 
-            {
+            this.body.force.y = -this.body.maxVel.y;              
+        } 
+        else 
+        {
                       this.body.force.y = 0;
-                      // change to the standing animation
-            }  
+        }  
 
- 
-         
-     // apply physics to the body (this moves the entity)
         this.body.update(dt);
-
-      // handle collisions against other shapes
         me.collision.check(this);
-
-      // return true if we moved or if the renderable was updated
         return (this._super(me.Entity, 'update', [dt]) || this.body.vel.x !== 0 || this.body.vel.y !== 0);
      },
      
@@ -101,23 +84,11 @@
                 // Simulate a platform object
                 if (other.type === "platform") 
                 {
-                    if (this.body.falling &&
-                    !me.input.isKeyPressed('down') &&
-
-                    // Shortest overlap would move the player upward
-                    (response.overlapV.y > 0) &&
-
-                    // The velocity is reasonably fast enough to have penetrated to the overlap depth
-                    (~~this.body.vel.y >= ~~response.overlapV.y)
-                    ){
-                        // Disable collision on the x axis
+                    if (this.body.falling && !me.input.isKeyPressed('down') && (response.overlapV.y > 0) && (~~this.body.vel.y >= ~~response.overlapV.y))
+                    {
                         response.overlapV.x = 0;
-
-                        // Repond to the platform (it is solid)
                         return true;
-                     }
-
-                    // Do not respond to the platform (pass through)
+                    }
                     return false;
                 }
             }

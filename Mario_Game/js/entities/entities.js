@@ -62,19 +62,20 @@ game.PlayerEntity = me.Entity.extend
                     {
 
                       // unflip the sprite
-                      this.renderable.flipX(false);
+                        this.renderable.flipX(false);
                       // update the entity velocity
-                      this.body.force.x = this.body.maxVel.x;
+                        this.body.force.x = this.body.maxVel.x;
                       // change to the walking animation
-                      if (!this.renderable.isCurrentAnimation("walk")) {
-                          this.renderable.setCurrentAnimation("walk");
-          }
+                    if (!this.renderable.isCurrentAnimation("walk")) 
+                    {
+                        this.renderable.setCurrentAnimation("walk");
+                    }
                     } 
                     else 
                     {
-                      this.body.force.x = 0;
+                        this.body.force.x = 0;
                       // change to the standing animation
-                      this.renderable.setCurrentAnimation("stand");
+                        this.renderable.setCurrentAnimation("stand");
                     }     
 
       if (me.input.isKeyPressed('jump') || me.input.isKeyPressed('up')) 
@@ -147,20 +148,10 @@ game.PlayerEntity = me.Entity.extend
                     
                 }
                 // Insert Pause Code Here
+                
+                
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
       // apply physics to the body (this moves the entity)
         this.body.update(dt);
