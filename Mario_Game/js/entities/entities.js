@@ -181,7 +181,29 @@ game.PlayerEntity = me.Entity.extend
         
             switch (response.b.body.collisionType) 
             {
-                case me.collision.types.Warp:
+                
+
+                case me.collision.types.WORLD_SHAPE:
+                // Simulate a platform object
+                if (other.type === "platform") 
+                {
+                    // Shortest overlap would move the player upward; The velocity is reasonably fast enough to have penetrated to the overlap depth; 
+                    if (this.body.falling && !me.input.isKeyPressed('down') && (response.overlapV.y > 0) && (~~this.body.vel.y >= ~~response.overlapV.y))
+                    {
+                        // Disable collision on the x axis
+                        response.overlapV.x = 0;
+                        // Repond to the platform (it is solid)
+                        return true;
+                     }
+
+
+                    // Do not respond to the platform (pass through)
+                    return false;
+                }
+                break;
+                    
+                case me.collision.types.ACTION_OBJECT:
+                    
                 if (other.type === "pipeEnterance")
                 {
                     //do something when collected       
@@ -193,62 +215,50 @@ game.PlayerEntity = me.Entity.extend
                         this.pos.y = 570;
                     }
                 }
-                    break;
-                    
-                    
-                    
-                case me.collision.types.WORLD_SHAPE:
-                // Simulate a platform object
-                if (other.type === "platform") 
+                
+                                    
+                if (other.type === "DeathBox")
                 {
-                    if (this.body.falling &&
-                    !me.input.isKeyPressed('down') &&
-
-                    // Shortest overlap would move the player upward
-                    (response.overlapV.y > 0) &&
-
-                    // The velocity is reasonably fast enough to have penetrated to the overlap depth
-                    (~~this.body.vel.y >= ~~response.overlapV.y)
-                    ){
-                        // Disable collision on the x axis
-                        response.overlapV.x = 0;
-
-                        // Repond to the platform (it is solid)
-                        return true;
-                     }
-
-                    // Do not respond to the platform (pass through)
-                    return false;
+                    if(response.overlapV.y > 0)
+                    me.levelDirector.reloadLevel();
+                    me.state.pause();
+                    me.game.viewport.fadeOut("#000000", 240, function()
+                        {
+                            this.HUD = new game.HUD.Container();
+                            me.game.world.addChild(this.HUD);      
+                        })
+                    me.state.resume(); 
+                        
+                    return true;
                 }
-                    break;
+                break;
+                
+                case me.collision.types.ENEMY_OBJECT:
+                if ((response.overlapV.y>0) && !this.body.jumping && !"DeathBox") 
+                {
+                    this.pos.y = other.pos.y - 5.8 - this.height;
+                    // bounce (force jump)
+                    this.body.falling = false;
+                    this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
+                    // set the jumping flag
+                    this.body.jumping = true;
+                }
+                else 
+                {
+                // this is Mario Dying, I still need to add Animation after he is hit, and a death animation.
+                // Pause if Collide with enemy
+                
+                    me.levelDirector.reloadLevel();
+                    me.state.pause();
+                    me.game.viewport.fadeOut("#000000", 240, function()
+                        {
+                        this.HUD = new game.HUD.Container();
+                        me.game.world.addChild(this.HUD);      
+                        })
+                    me.state.resume(); 
                     
- 
-            case me.collision.types.ENEMY_OBJECT:
-                if ((response.overlapV.y>0) && !this.body.jumping) 
-            {
-                this.pos.y = other.pos.y - 5.8 - this.height;
-                // bounce (force jump)
-                this.body.falling = false;
-                this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
-
-                // set the jumping flag
-                this.body.jumping = true;
-            }
-            else 
-            {
-        // this is Mario Dying, I still need to add Animation after he is hit, and a death animation.
-        // Pause if Collide with enemy
-        me.state.pause;
-        me.state.waitSeconds
-                
                 // Load the Mario_Overworld1 map, set to Mario_1-1 for testing would need to change this line if using multiple worlds, possible would need a lot more if/else statements for going back to the overworld and keeping Lives/Score/ect.   Currently commented out as its annoying the hell out of me when testing.
-                
-        me.levelDirector.loadLevel("Mario_1-1");
-               // (me.state.isCurrent(me.state.MENU)
-        this.HUD = new game.HUD.Container();
-        me.game.world.addChild(this.HUD);
-                
-        me.state.resume;
+
             }
 
                 // Fall through
@@ -263,40 +273,22 @@ game.PlayerEntity = me.Entity.extend
         }
 });
 
-
-
-/**
- * Overworld Mario Entity
- *
-
- game.LilMario = me.Sprite.extend({
-     // constructor
-     init:function (x, y, settings) {
-         // call the parent constructor
-         this._super(me.Sprite, 'init', [x, y , settings]);
-
-         // define a basic walking animation
-         this.addAnimation("walk",  [...]);
-         // define a standing animation (using the first frame)
-         this.addAnimation("stand",  [...]);
-         // set the standing animation as default
-         this.setCurrentAnimation("stand");
-
-         // add a physic body
-         this.body = new me.Body(this);
-         // add a default collision shape
-         this.body.addShape(new me.Rect(0, 0, this.width, this.height));
-         // configure max speed and friction
-         this.body.setMaxVelocity(3, 15);
-         this.body.setFriction(0.4, 0);
-
-         // enable physic collision (off by default for basic me.Renderable)
-         this.isKinematic = false;
-
-         // set the display to follow our position on both axis
-         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-     },
- }); 
-
-*/
-
+game.DeathBox = me.sprite.extend(
+{   
+     
+    // entending the init function is not manditoy
+    // unless you need to add some extra initialization
+    init: function (x, y, settings) 
+    {
+        // call the parent constructor
+        this._super(me.CollectableEntity, 'init', [x, y, settings]);
+        this.body.collisionType = me.collision.types.ACTION_OBJECT;
+        
+        
+    },       
+    //this function is called by the engine when an object is touched by something (here collected)
+    onCollision : function (response, other) 
+    {        
+        return false;
+    }
+}); 

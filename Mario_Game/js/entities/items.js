@@ -13,7 +13,7 @@ game.CoinEntity = me.CollectableEntity.extend(
             
     this._super(me.CollectableEntity, 'init', [x, y , settings]);
         this.renderable.anchorPoint.set(0, 0);
-        this.renderable.addAnimation("rotate"[0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 2, 2, 2])
+        this.renderable.addAnimation("rotate"[0, 1, 2, 3, 2])
         },
 
 //--- this function is called by the engine, when
